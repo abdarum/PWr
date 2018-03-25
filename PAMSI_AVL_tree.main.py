@@ -4,7 +4,7 @@ Program written for PAMSI by Kornel Stefańczyk nr 235420
 5.03.2018
 """
 
-__version__ = '0.01'
+__version__ = '0.40'
 
 active_debbuging = True
 
@@ -30,6 +30,10 @@ class AVLNode(Node):
         self.balance = balance
 
 
+
+
+
+
 def bst_count(top):
     """Counting number of nodes"""
     if top is None:
@@ -39,11 +43,10 @@ def bst_count(top):
 def bst_height(top):
     """Function return height of children nodes of "top" node """
     if top is None:
-        return 0
+        return -1
     left = bst_height(top.leftChild)
     right = bst_height(top.rightChild)
     return 1 + max(left, right)
-
 
 def bst_find_min(top):
     """Function return node of least element of tree"""
@@ -90,7 +93,6 @@ def bst_insert(root, new_node):
 
     return root, new_node
 
-
 def bst_transplant(root, node_to_replace, transplanted_node):
     """Function transplant place node from third argument in place of node from second argument
 
@@ -108,12 +110,11 @@ def bst_transplant(root, node_to_replace, transplanted_node):
         transplanted_node.parent = node_to_replace
     return root, transplanted_node
 
-
-
 def bst_delete(root, node):
     """ Function delete node called in as argument
 
     It return root and node that will be in place of deleted node"""
+    debug("Deleting node of tree, key= "+str(node.key))
     if root is None or node is None:
         return root, None
     if node.leftChild is None:
@@ -132,6 +133,18 @@ def bst_delete(root, node):
         y.leftChild.parent = y
         return root, y
 
+def bst_find_succesor(root, node):
+    """Function return succesor of node """
+    if root is None or node is None:
+        return None
+    if node.rightChild:
+        return bst_find_min(node.rightChild) #there is no right subtree
+    succesor = node.parent
+    while succesor and node == succesor.rightChild:
+        node = succesor
+        succesor = succesor.parent
+    return succesor
+
 def bst_rotate_left(root, top):
     """Function do left rotation of subtree"""
     if top.rightChild is None:
@@ -148,8 +161,10 @@ def bst_rotate_left(root, top):
         top.parent.leftChild = node
     else:
         top.parent.rightChild = node
+    
     node.leftChild = top
     top.parent = node
+    debug("Rotated left node with key: "+str(top.key)+" new node instead: "+str(node.key)) 
     return root, node
 
 def bst_rotate_right(root, top):
@@ -170,6 +185,7 @@ def bst_rotate_right(root, top):
         top.parent.leftChild = node
     node.rightChild = top
     top.parent = node 
+    debug("Rotated right node with key: "+str(top.key)+" new node instead: "+str(node.key))
     return root, node
 
 
@@ -204,59 +220,191 @@ def return_tree_postorder(top):
     order.append(top.key)
     return order
 
-def avl_tree_rebalance(node):
+
+
+def return_avl_tree_inorder(top):
+    """Function print tree like in terminal with balance ratio: left_child, current_node, right_child"""
+    if top is None:
+        print("empty tree")
+    else:
+        if top.leftChild is not None:
+            return_avl_tree_inorder(top.leftChild)
+        if top is not None:
+            print(str(top.key)+'('+str(top.balance)+')['+str(bst_height(top))+'] ', sep=' ', end='', flush=True)
+            #print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+        if top.rightChild is not None:
+            return_avl_tree_inorder(top.rightChild)
+
+def return_avl_tree_preorder(top):
+    """Function print tree like in terminal with balance ratio: current_node, left_child, right_child"""
+    if top is None:
+        print("empty tree")
+    else:
+        if top is not None:
+            print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+        if top.leftChild is not None:
+            return_avl_tree_inorder(top.leftChild)
+        if top.rightChild is not None:
+            return_avl_tree_inorder(top.rightChild)
+
+def return_avl_tree_postorder(top):
+    """Function print tree like in terminal with balance ratio: left_child, right_child, current_node"""
+    if top is None:
+        print("empty tree")
+    else:
+        if top.leftChild is not None:
+            return_avl_tree_inorder(top.leftChild)
+        if top.rightChild is not None:
+            return_avl_tree_inorder(top.rightChild)
+        if top is not None:
+            print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+
+
+
+def avl_tree_rebalance(root, y):
     """This function rebalance AVL Tree, and it is using in function like avl_node_insert or avl_node_delete"""
-    pass
+    w = None
+    if y.balance == -2:
+        x = y.leftChild
+        w = x.rightChild
+        if x.balance == -1:
+            w = x
+            x.balance = 0
+            y.balance = 0
+            root, _ = bst_rotate_right(root, y)
+        else:
+            w = x.rightChild
+            root, _ = bst_rotate_left(root, x)
+            root, _ = bst_rotate_right(root, y)
+            if w.balance == -1:
+                x.balance = 0
+                y.balance = 1 #+1
+            elif w.balance == 0:
+                x.balance = 0
+                y.balance = 0
+            else: #w.balance == 1
+                x.balance = -1
+                y.balance = 0
+            w.balance = 0
+    elif y.balance == 2:
+        x = y.rightChild
+        w = y.leftChild
+        if x.balance == 1:
+            w = x
+            x.balance = 0
+            y.balance = 0
+            root, _ = bst_rotate_left(root, y)
+        else:
+            w = x.leftChild
+            root, _ = bst_rotate_right(root, x)
+            root, _ = bst_rotate_left(root, y)
+            if w.balance == -1:                                
+                x.balance = 0
+                y.balance = -1
+            elif w.balance == 0:
+                x.balance = 0
+                y.balance = 0
+            else:
+                x.balance = 1
+                y.balance = 0
+            w.balance = 0
+    return root
 
-def avl_node_insert():
-    pass
+def avl_update(node, y):
+    """Function update balance parametr of node"""
+    while node != y:
+        parent = node.parent
+        if parent.leftChild == node:
+            parent.balance -= 1
+        else:
+            parent.balance += 1
+        node = parent
 
-def avl_node_delete():
-    pass
+def avl_node_insert(root, new_node):
+    """Function insert node to tree and update it and balance to maintain avl type of tree"""
+    root, _ = bst_insert(root, new_node)
+    y = new_node
+    while y != root:
+        y = y.parent
+        if y.balance != 0:
+            break
+    avl_update(new_node, y)
+    root = avl_tree_rebalance(root, y)
+    return root, new_node
+
+def avl_node_delete(root, node):
+    """Function delete node to tree and update it and balance to maintain avl type of tree"""
+    if node is None:
+        return node
+    u = bst_find_succesor(root,node)
+    root, _ = bst_delete(root, node)
+    succ = bst_find_succesor(root,node) 
+    if succ:
+        succ.balance = bst_height(succ.rightChild) - bst_height(succ.leftChild)
+    q = node.parent
+    if u:
+        u.balance = bst_height(u.rightChild) - bst_height(u.leftChild)
+        if q is None:
+            q = u
+    while q:
+        q.balance = bst_height(q.rightChild) - bst_height(q.leftChild)
+        root = avl_tree_rebalance(root, q)
+        q = q.parent
+    if u:
+        return root, u
+    return root, None
 
 
 def print_status_of_tree(root):
     """Test function"""
-    print("\theight: "+str(bst_height(AVLTree))+", number of nods "+str(bst_count(AVLTree))+"\n"+str(return_tree_postorder(AVLTree)))
+    print("\theight: "+str(bst_height(AVLTree))+", number of nods "+str(bst_count(AVLTree)))
+    print(return_avl_tree_inorder(AVLTree))
 
 
 
+
+
+
+
+list_of_elements = [57, 16, 49, 19, 56, 12, 50, 26, 47, 51, 36, 1, 15, 46, 37, 11, 17, 35, 38, 42, 7, 33, 13, 44, 31, 8, 28, 3, 53, 39, 14, 52, 18, 45, 30, 34, 25]
+#, 27, 2, 21, 32, 24, 29, 43, 54, 4, 59, 55, 41, 48, 9, 20, 23, 5, 58, 22, 40, 10] 
+sorted_list_of_elements = list(list_of_elements)
+sorted_list_of_elements.sort()
+
+        
 print("test drzewa")
 AVLTree = AVLNode(key=5)
-bst_insert(AVLTree, AVLNode(key=4))
 print_status_of_tree(AVLTree)
 
-
-bst_insert(AVLTree, AVLNode(key=6))
-print_status_of_tree(AVLTree)
-
-
-bst_insert(AVLTree, AVLNode(key=7))
-print_status_of_tree(AVLTree)
-
-bst_insert(AVLTree, AVLNode(key=3))
-print_status_of_tree(AVLTree)
-
-bst_insert(AVLTree, AVLNode(key=8))
-print_status_of_tree(AVLTree)
-
-bst_insert(AVLTree, AVLNode(key=9))
-print_status_of_tree(AVLTree)
-
-
-bst_insert(AVLTree, AVLNode(key=8))
-print_status_of_tree(AVLTree)
+for i in list_of_elements:
+    AVLTree, _ = avl_node_insert(AVLTree, AVLNode(key=i))
+    print_status_of_tree(AVLTree)
 
 
 
-print(AVLTree.rightChild.rightChild.key)
-bst_rotate_left(AVLTree, AVLTree.rightChild.rightChild)
-print(AVLTree.rightChild.rightChild.key)
+
+print("\n\nusuwanie elementów\n\n")
 
 
-print_status_of_tree(AVLTree)
-bst_delete(AVLTree, AVLTree.rightChild)
-print_status_of_tree(AVLTree)
+
+delete_list = ['l', 'pp', 'lll', 'pl']
+for i in delete_list:
+    tmp_node=AVLTree
+    for j in range(0,len(i)):
+        if i[j] == 'l':
+            tmp_node = tmp_node.leftChild
+        elif i[j] == 'p':
+            tmp_node = tmp_node.rightChild
+    AVLTree, _ = avl_node_delete(AVLTree, tmp_node)
+    print_status_of_tree(AVLTree)
+
+
+
+
+
+
+print(sorted_list_of_elements)
+
 
 
 
