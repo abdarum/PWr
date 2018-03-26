@@ -4,7 +4,7 @@ Program written for PAMSI by Kornel Stefańczyk nr 235420
 5.03.2018
 """
 
-__version__ = '0.40'
+__version__ = '0.60'
 
 active_debbuging = True
 
@@ -107,7 +107,7 @@ def bst_transplant(root, node_to_replace, transplanted_node):
     else:
         node_to_replace.parent.rightChild = transplanted_node
     if transplanted_node:
-        transplanted_node.parent = node_to_replace
+        transplanted_node.parent = node_to_replace.parent
     return root, transplanted_node
 
 def bst_delete(root, node):
@@ -222,40 +222,50 @@ def return_tree_postorder(top):
 
 
 
-def return_avl_tree_inorder(top):
+def return_avl_tree_inorder(top, interface_type=1):
     """Function print tree like in terminal with balance ratio: left_child, current_node, right_child"""
     if top is None:
         print("empty tree")
     else:
         if top.leftChild is not None:
             return_avl_tree_inorder(top.leftChild)
-        if top is not None:
+
+        if interface_type == 0:
+            print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+        elif interface_type == 1:
             print(str(top.key)+'('+str(top.balance)+')['+str(bst_height(top))+'] ', sep=' ', end='', flush=True)
-            #print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+
         if top.rightChild is not None:
             return_avl_tree_inorder(top.rightChild)
 
-def return_avl_tree_preorder(top):
+def return_avl_tree_preorder(top, interface_type=1):
     """Function print tree like in terminal with balance ratio: current_node, left_child, right_child"""
     if top is None:
         print("empty tree")
     else:
-        if top is not None:
+        if interface_type == 0:
             print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
-        if top.leftChild is not None:
-            return_avl_tree_inorder(top.leftChild)
-        if top.rightChild is not None:
-            return_avl_tree_inorder(top.rightChild)
+        elif interface_type == 1:
+            print(str(top.key)+'('+str(top.balance)+')['+str(bst_height(top))+'] ', sep=' ', end='', flush=True)
 
-def return_avl_tree_postorder(top):
+        if top.leftChild is not None:
+            return_avl_tree_preorder(top.leftChild)
+        if top.rightChild is not None:
+            return_avl_tree_preorder(top.rightChild)
+
+def return_avl_tree_postorder(top, interface_type=1):
     """Function print tree like in terminal with balance ratio: left_child, right_child, current_node"""
     if top is None:
         print("empty tree")
     else:
         if top.leftChild is not None:
-            return_avl_tree_inorder(top.leftChild)
-        if top.rightChild is not None:
-            return_avl_tree_inorder(top.rightChild)
+            return_avl_tree_postorder(top.leftChild)
+
+        if interface_type == 0:
+            print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
+        elif interface_type == 1:
+            print(str(top.key)+'('+str(top.balance)+')['+str(bst_height(top))+'] ', sep=' ', end='', flush=True)
+
         if top is not None:
             print(str(top.key)+'('+str(top.balance)+') ', sep=' ', end='', flush=True)
 
@@ -355,11 +365,15 @@ def avl_node_delete(root, node):
     return root, None
 
 
-def print_status_of_tree(root):
+def print_status_of_tree(root, type_of_moving='in'):
     """Test function"""
     print("\theight: "+str(bst_height(AVLTree))+", number of nods "+str(bst_count(AVLTree)))
-    print(return_avl_tree_inorder(AVLTree))
-
+    if type_of_moving == 'pre':
+        print(return_avl_tree_preorder(AVLTree))
+    elif type_of_moving == 'in':
+        print(return_avl_tree_inorder(AVLTree))
+    elif type_of_moving == 'post':
+        print(return_avl_tree_postorder(AVLTree))
 
 
 
@@ -373,8 +387,9 @@ sorted_list_of_elements.sort()
 
         
 print("test drzewa")
-AVLTree = AVLNode(key=5)
-print_status_of_tree(AVLTree)
+AVLTree = None
+#AVLTree = AVLNode(key=5)
+#print_status_of_tree(AVLTree)
 
 for i in list_of_elements:
     AVLTree, _ = avl_node_insert(AVLTree, AVLNode(key=i))
@@ -382,13 +397,14 @@ for i in list_of_elements:
 
 
 
-
 print("\n\nusuwanie elementów\n\n")
 
 
 
-delete_list = ['l', 'pp', 'lll', 'pl']
+delete_list = ['pl','pl','plp','plp','plp','plp','plp']
+#delete_list = ['p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p']
 for i in delete_list:
+    print("delete "+i)
     tmp_node=AVLTree
     for j in range(0,len(i)):
         if i[j] == 'l':
@@ -404,8 +420,6 @@ for i in delete_list:
 
 
 print(sorted_list_of_elements)
-
-
 
 
 
