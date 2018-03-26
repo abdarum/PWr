@@ -6,9 +6,11 @@ Program written for PAMSI by Kornel Stefańczyk nr 235420
 
 __version__ = '0.60'
 
-active_debbuging = True
 
-def debug(msg):
+def debug(msg, active_debbuging = True):
+    """Function print msg in console'
+    
+    It is using to inform user about tasks of program"""
     if active_debbuging:
         print(msg)
 
@@ -24,7 +26,7 @@ class Node():
 
 
 class AVLNode(Node):
-    """Class contain structure of AVL tree and methods to operate on this tree  """
+    """Class contain structure of AVL tree"""
     def __init__(self, key=None, parent=None, rightChild=None, leftChild=None, balance=0):
         Node.__init__(self, key, parent, rightChild, leftChild)
         self.balance = balance
@@ -133,17 +135,17 @@ def bst_delete(root, node):
         y.leftChild.parent = y
         return root, y
 
-def bst_find_succesor(root, node):
-    """Function return succesor of node """
+def bst_find_successor(root, node):
+    """Function return successor of node """
     if root is None or node is None:
         return None
     if node.rightChild:
         return bst_find_min(node.rightChild) #there is no right subtree
-    succesor = node.parent
-    while succesor and node == succesor.rightChild:
-        node = succesor
-        succesor = succesor.parent
-    return succesor
+    successor = node.parent
+    while successor and node == successor.rightChild:
+        node = successor
+        successor = successor.parent
+    return successor
 
 def bst_rotate_left(root, top):
     """Function do left rotation of subtree"""
@@ -346,9 +348,9 @@ def avl_node_delete(root, node):
     """Function delete node to tree and update it and balance to maintain avl type of tree"""
     if node is None:
         return node
-    u = bst_find_succesor(root,node)
+    u = bst_find_successor(root,node)
     root, _ = bst_delete(root, node)
-    succ = bst_find_succesor(root,node) 
+    succ = bst_find_successor(root,node) 
     if succ:
         succ.balance = bst_height(succ.rightChild) - bst_height(succ.leftChild)
     q = node.parent
@@ -366,7 +368,12 @@ def avl_node_delete(root, node):
 
 
 def print_status_of_tree(root, type_of_moving='in'):
-    """Test function"""
+    """Function print in console information about tree. 
+    
+    It print height of tree, number of nodes in tree and structure of tree.
+    type_of_moving='in'   - print structure of tree inorder 
+                   'pre'  - print structure of tree preorder
+                   'post' - print structure of tree postorder """
     print("\theight: "+str(bst_height(AVLTree))+", number of nods "+str(bst_count(AVLTree)))
     if type_of_moving == 'pre':
         print(return_avl_tree_preorder(AVLTree))
@@ -386,7 +393,7 @@ sorted_list_of_elements = list(list_of_elements)
 sorted_list_of_elements.sort()
 
         
-print("test drzewa")
+print("Tese of tree")
 AVLTree = None
 #AVLTree = AVLNode(key=5)
 #print_status_of_tree(AVLTree)
@@ -397,7 +404,7 @@ for i in list_of_elements:
 
 
 
-print("\n\nusuwanie elementów\n\n")
+print("\n\nRemoving nodes\n\n")
 
 
 
@@ -416,10 +423,5 @@ for i in delete_list:
 
 
 
-
-
-
 print(sorted_list_of_elements)
-
-
 
