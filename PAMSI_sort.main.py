@@ -8,7 +8,7 @@ import random
 
 __author__ = 'Kornel Stefańczykr'
 __license__ = 'CC BY-SA'
-__version__ = '0.5'
+__version__ = '0.6'
 __maintainer__ = 'Kornel Stefańczyk'
 __email__ = 'kornelstanczyk@wp.pl'
 
@@ -50,6 +50,35 @@ def exchange_elements(list_to_edit, i1, i2):
     """Change place of two elemts in list"""
     #print('List len: '+str(len(list_to_edit))+' Index1: '+str(i1)+' Index2: '+str(i2))
     list_to_edit[i1], list_to_edit[i2] = list_to_edit[i2], list_to_edit[i1]
+
+def merge_sort(list_to_sort, l=0, r=None):
+    """Quick sort function
+    list_to_sort - list that will be sorted
+    l - index of lower border of list to sort
+    r - index of higher border of list to sort"""
+    if r is None:
+        r = len(list_to_sort)-1
+    if l<r:
+        i = (l + r)//2
+        merge_sort(list_to_sort, l, i)
+        merge_sort(list_to_sort, i+1, r)
+        merge(list_to_sort, l, i, r)
+
+def merge(list_to_merge, l, m, r):
+    l1 = list(list_to_merge[l:m+1])
+    l2 = list(list_to_merge[m+1:r+1])
+    current_index = l
+    if r-l > 0:
+        while l1 or l2:
+            if not len(l1):
+                list_to_merge[current_index] = l2.pop(0)
+            elif not len(l2):
+                list_to_merge[current_index] = l1.pop(0)
+            elif l1[0] < l2[0]:
+                list_to_merge[current_index] = l1.pop(0)
+            else:
+                list_to_merge[current_index] = l2.pop(0)
+            current_index += 1
 
 class TestedData:
     """Contain data from testing function"""
@@ -126,11 +155,14 @@ class TestingClass:
     def sort(self, list_to_sort, sorting_type='quick'):
         """Sorting list using diffrent types of sorting. Return sorting time
         
-        quick - quick sort"""
+        quick - quick sort
+        merge - mergesort"""
+        start_time = time.time()
         if sorting_type == 'quick':
-            start_time = time.time()
             quick_sort(list_to_sort)
-            stop_time = time.time()
+        elif sorting_type == 'merge':
+            merge_sort(list_to_sort)
+        stop_time = time.time()
         return self.is_sorted(list_to_sort), stop_time - start_time
 
     def testing_gear(self, percent_of_sorted_list=None, list_of_lists_size=None,
@@ -199,18 +231,16 @@ class TestingClass:
         for i in self.list_of_tested_data:
             i.print_data(active_list_of_sorting_time)
 
-    def print_status_of_sorting(self, list_to_sort):
+    def print_status_of_sorting(self, list_to_sort, sorting_type='quick'):
         """Print list before sort, time of sort, is sorted and list after"""
-        print(list_to_sort)
-        start_time = time.time()
-        quick_sort(list_to_sort)
-        stop_time = time.time()
-        print('Time of sorting '+str(stop_time - start_time), end='') 
-        if self.is_sorted(list_to_sort):
+        print('\n',list_to_sort)
+        is_sorted, sort_time = self.sort(list_to_sort, sorting_type='merge')
+        print('Time of sorting', sort_time, end='') 
+        if is_sorted:
             print(' List is sorted')
         else: print(' List is NOT sorted')
-        print(list_to_sort)        
-        if self.is_sorted(list_to_sort):
+        print('\n\n', list_to_sort)        
+        if is_sorted:
             print(' List is sorted')
         else: print(' List is NOT sorted')
 
@@ -235,9 +265,9 @@ class TestingClass:
 
 
 tests = TestingClass()
-tmp_list, generation_time = tests.create_random_list(100, high=1000, reverse=True)
-print(generation_time)
+tmp_list, generation_time = tests.create_random_list(10000, high=1000)
+print('\nGeneration time', generation_time)
 tests.print_status_of_sorting(tmp_list)
-tests.testing_gear()
-tests.csv_write('./test.csv')
-tests.print_data(False)
+#tests.testing_gear()
+#tests.csv_write('./test.csv')
+#tests.print_data(False)
