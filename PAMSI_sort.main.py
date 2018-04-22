@@ -5,6 +5,8 @@
 import time
 import csv
 import random
+import math
+import copy
 
 __author__ = 'Kornel Stefańczykr'
 __license__ = 'CC BY-SA'
@@ -52,7 +54,7 @@ def exchange_elements(list_to_edit, i1, i2):
     list_to_edit[i1], list_to_edit[i2] = list_to_edit[i2], list_to_edit[i1]
 
 def merge_sort(list_to_sort, l=0, r=None):
-    """Quick sort function
+    """Merge sort function
     list_to_sort - list that will be sorted
     l - index of lower border of list to sort
     r - index of higher border of list to sort"""
@@ -79,6 +81,77 @@ def merge(list_to_merge, l, m, r):
             else:
                 list_to_merge[current_index] = l2.pop(0)
             current_index += 1
+
+def heap_sort(list_to_sort, l=0, r=None):
+    """Heap sort function
+    list_to_sort - list that will be sorted
+    l - index of lower border of list to sort
+    r - index of higher border of list to sort"""
+    if r is None:
+        r = len(list_to_sort)-1
+    while r-l > 0:
+        for i in range(r-(r+1)%2, l-1, -2):
+            move_element = False
+            if i == r:
+                if list_to_sort[i] > list_to_sort[l+(i-l+1)//2-1]:
+                    move_element = True
+                    a = i
+            elif list_to_sort[i] > list_to_sort[i+1]:
+                if list_to_sort[i] > list_to_sort[l+(i-l+1)//2-1]:
+                    move_element = True
+                    a = i
+            elif list_to_sort[i+1] > list_to_sort[i]:
+                if list_to_sort[i+1] > list_to_sort[l+(i-l+1)//2-1]:
+                    move_element = True
+                    a = i + 1
+            else:
+                if list_to_sort[i] > list_to_sort[l+(i-l+1)//2-1]:
+                    move_element = True
+                    a = i
+
+            while move_element:
+                exchange_elements(list_to_sort, a, l+(a-l+1)//2-1)
+                if l+(a-l)*2 + 1 <= r:
+                    if l+(a-l)*2 + 1 == r:
+                        if list_to_sort[l+(a-l)*2 + 1] > list_to_sort[a]:
+                            a = l+(a-l)*2 + 1
+                        else:
+                            move_element = False
+                    elif list_to_sort[l+(a-l)*2 + 1] > list_to_sort[l+(a-l)*2 + 2]:
+                        if list_to_sort[l+(a-l)*2 + 1] > list_to_sort[a]:
+                            a = l+(a-l)*2 + 1
+                        else:
+                            move_element = False
+                    elif list_to_sort[l+(a-l)*2 + 2] > list_to_sort[l+(a-l)*2 + 1]:
+                        if list_to_sort[l+(a-l)*2 + 2] > list_to_sort[a]:
+                            a = l+(a-l)*2 + 1
+                        else:
+                            move_element = False
+                    else:
+                        move_element = False
+                else:
+                    move_element = False
+        exchange_elements(list_to_sort, l, r)
+        r -= 1
+
+def introsort(list_to_sort, l=0, r=None, M=None):
+    """Introsort function
+    list_to_sort - list that will be sorted
+    l - index of lower border of list to sort
+    r - index of higher border of list to sort
+    M - max depth of recrsive call"""
+    if r is None:
+        r = len(list_to_sort)-1
+    if not M:
+        M = int(2*math.log2(len(list_to_sort)))
+    i = split_list(list_to_sort, l, r)
+    if len(list_to_sort)<=1:
+        pass
+    elif i > M:
+        heap_sort(list_to_sort, l, r)
+    else:
+        introsort(list_to_sort, l, i, M-1)
+        introsort(list_to_sort, i+1, r, M-1)
 
 class TestedData:
     """Contain data from testing function"""
@@ -126,12 +199,26 @@ class TestingClass:
     def __init__(self):
         self.list_of_tested_data = []
 
-    def is_sorted(self, list_to_check):
+    def is_sorted(self, list_to_check, show_all_errors=False):
         """If list_to_check is not sortet it return False"""
-        for i in range(1, len(list_to_check)):
-            if list_to_check[i] < list_to_check[i-1]:
+        if show_all_errors:
+            list_of_errors = []
+            for i in range(1, len(list_to_check)):
+                if list_to_check[i] < list_to_check[i-1]:
+                    list_of_errors.append(i)
+            print('List of error indexes',list_of_errors)
+            for j in list_of_errors:
+                print('Index', j, 'values', list_to_check[j], list_to_check[j+1])
+            if len(list_of_errors):
                 return False
-        return True
+            else:
+                return True
+        else:
+            for i in range(1, len(list_to_check)):
+                if list_to_check[i] < list_to_check[i-1]:
+                    print('Sorted fail in:',i)
+                    return False
+            return True
 
     def create_random_list(self, size, low=None, high=None, sorted_to=None,
             reverse=False):
@@ -162,6 +249,10 @@ class TestingClass:
             quick_sort(list_to_sort)
         elif sorting_type == 'merge':
             merge_sort(list_to_sort)
+        elif sorting_type == 'heap':
+            heap_sort(list_to_sort)
+        elif sorting_type == 'introsort':
+            introsort(list_to_sort)
         stop_time = time.time()
         return self.is_sorted(list_to_sort), stop_time - start_time
 
@@ -233,8 +324,10 @@ class TestingClass:
 
     def print_status_of_sorting(self, list_to_sort, sorting_type='quick'):
         """Print list before sort, time of sort, is sorted and list after"""
+        print('\nNumber of elements', len(list_to_sort))
+        print('Type of sorting', sorting_type)
         print('\n',list_to_sort)
-        is_sorted, sort_time = self.sort(list_to_sort, sorting_type='merge')
+        is_sorted, sort_time = self.sort(list_to_sort, sorting_type)
         print('Time of sorting', sort_time, end='') 
         if is_sorted:
             print(' List is sorted')
@@ -243,6 +336,7 @@ class TestingClass:
         if is_sorted:
             print(' List is sorted')
         else: print(' List is NOT sorted')
+        self.is_sorted(list_to_sort, show_all_errors=True)
 
     def csv_write(self, filename, output_data_format='format1'):
         """Write data into CSV file 
@@ -265,9 +359,12 @@ class TestingClass:
 
 
 tests = TestingClass()
-tmp_list, generation_time = tests.create_random_list(10000, high=1000)
+tmp_list, generation_time = tests.create_random_list(3000, high=1000)
 print('\nGeneration time', generation_time)
-tests.print_status_of_sorting(tmp_list)
+tests.print_status_of_sorting(tmp_list, sorting_type='introsort')
 #tests.testing_gear()
 #tests.csv_write('./test.csv')
 #tests.print_data(False)
+
+
+
