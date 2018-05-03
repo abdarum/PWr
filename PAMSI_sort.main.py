@@ -261,7 +261,7 @@ class TestingClass:
             reverse=None):
         """Creating list with pseudo random elements"""
         if not size:
-            size = 20
+            size = 50
         if not low:
             low = 0
         if not high:
@@ -324,7 +324,7 @@ class TestingClass:
             list_of_lists_size = [10000, 50000, 100000, 500000, 1000000] 
         if number_of_sorting is None:
             number_of_sorting = 100
-        #self.csv_write(name_of_tmp_csv, 'format1')
+        self.csv_write(name_of_tmp_csv, 'formatr3')
         debug('Number of repeting proces: ' + str(number_of_sorting) + '\n')
         for how_much_sorted in percent_of_sorted_list:
             for list_size in list_of_lists_size:
@@ -440,6 +440,11 @@ class TestingClass:
                     str(row.percent_of_sorted_list).replace('.',','), 
                     str(row.time_mean()).replace('.',','),
                     row.reverse_sorted,row.sorting_type,time.ctime()])
+        elif output_data_format == 'format3':
+            with open(filename, 'a', newline='') as csvfile:
+                writer = csv.writer(csvfile, delimiter=';',
+                                    quoting = csv.QUOTE_NONE)
+                writer.writerow(['','','','','',time.ctime()])
 
         debug('CSV file: ' + filename + ' saved properly\n')
 
@@ -449,7 +454,7 @@ def user_menu():
         tests.testing_gear(sorting_type='quick')
         tests.testing_gear(number_of_sorting=10, sorting_type='merge')
         tests.testing_gear(list_of_lists_size=[ 1371, 1501, 1751, 2001, 2501], 
-                number_of_sorting=10)
+                number_of_sorting=10, sorting_type='introsort')
         tests.csv_write(sys.argv[1])
         print('\nTests complete!!!\n')
     else:
@@ -458,8 +463,8 @@ def user_menu():
         usr_choice = None
         while usr_choice != 'q':
             print('Choose one of option:')
-            print('\t1 - insert list and sort it')
-            print('\t2 - sort random list')
+            print('\t1 - sort random list')
+            print('\t2 - insert list and sort it')
             print('\t3 - run time consuming analitics')
             print('\t4 - show time consuming analitics data')
             print('\t5 - save to csv file time consuming analitics data')
@@ -467,10 +472,10 @@ def user_menu():
             usr_choice = input('Enter your choice: ')
             print()
             if usr_choice == '1' or usr_choice == '2':
-                if usr_choice == '1':
+                if usr_choice == '2':
                     usr_list = [int(x) for x in input().split()]
-                elif usr_choice == '2':
-                    usr_size = input('Size of generating table(default 20 - press ENTER) ')
+                elif usr_choice == '1':
+                    usr_size = input('Size of generating table(default 50 - press ENTER) ')
                     if usr_size == '':
                         usr_size = None
                     else:
@@ -505,8 +510,8 @@ def user_menu():
                         else:
                             usr_sorted = float(usr_sorted)
                             if not usr_size:
-                                size_of_table = 20
-                            if usr_sorted > 19:
+                                size_of_table = 50
+                            if usr_sorted > 49:
                                 print('Too high value. Set 0')
                                 usr_sorted = 0
                     usr_list, generation_time = tests.create_random_list(
@@ -535,7 +540,7 @@ def user_menu():
                 tests.testing_gear(sorting_type='quick')
                 tests.testing_gear(number_of_sorting=10, sorting_type='merge')
                 tests.testing_gear(list_of_lists_size=[ 1371, 1501, 1751, 2001, 2501], 
-                        number_of_sorting=10)
+                        number_of_sorting=10, sorting_type='introsort')
                 print('Tests complete!!!')
             elif usr_choice == '4':
                 tests.print_data(False)
