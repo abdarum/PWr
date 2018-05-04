@@ -15,7 +15,7 @@ __maintainer__ = 'Kornel Stefańczyk'
 __email__ = 'kornelstanczyk@wp.pl'
 
 
-def debug(msg, active_debugging=False, end_=None):
+def debug(msg, active_debugging=True, end_=None):
     """Print msg to terminal"""
     if active_debugging:
         if end_:
@@ -30,8 +30,11 @@ class TicTacToe:
         
         self.size = self.width, self.height = 720, 720
         self.screen = pygame.display.set_mode(self.size)
-        self.background_color = 255, 255, 255
-        self.line_color = 255, 0, 0
+        self.screen_redraw = False
+        self.color_background = 255, 255, 255
+        self.color_line = 255, 0, 0
+        self.color_button = 51, 51, 51
+        self.color_button_font =  255, 255, 255
         self.line_size = 4
 
         self.number_columns, self.number_rows = 4, 3 
@@ -55,6 +58,35 @@ class TicTacToe:
         self.current_player = 'X'
         self.winner = None
 
+    def clear_data(self):
+        """Clear current game data"""
+        self.game_matrix = [[None for i in range(self.number_columns)]\
+                for j in range(self.number_rows)]
+        self.X_list = []
+        self.O_list = []
+        self.current_player = 'X'
+        self.winner = None
+
+    def draw(self, type_draw='last_element'):
+        """Drawing grid and newly added elements"""
+        if type_draw == 'basic':
+            self.screen.fill(self.color_background)
+            for i in range(1, self.number_columns):
+                pygame.draw.line(self.screen, self.color_line,
+                        [i*self.pos_dim[0], 0],
+                        [i*self.pos_dim[0], self.height],
+                        self.line_size)
+            for i in range(1, self.number_rows):
+                pygame.draw.line(self.screen, self.color_line,
+                        [0, i*self.pos_dim[1]],
+                        [self.width, i*self.pos_dim[1]],
+                        self.line_size)
+        elif type_draw == 'last_element':
+            if self.current_player == 'X':
+                self.screen.blit(self.X, self.X_list[-1])
+            if self.current_player == 'O':
+                self.screen.blit(self.O, self.O_list[-1])
+
     def add_choose(self, column, row, player):
         """Adding player choice"""
         disp_pos = column*self.pos_dim[0], row*self.pos_dim[1]
@@ -63,10 +95,14 @@ class TicTacToe:
             self.X_list.append(self.Xrect.copy())
             self.X_list[-1] = self.X_list[-1].move(disp_pos[0],
                     disp_pos[1])
+            self.screen_redraw = True
+            self.draw()
         elif player == 'O':
             self.O_list.append(self.Orect.copy())
             self.O_list[-1] = self.O_list[-1].move(disp_pos[0],
                     disp_pos[1])
+            self.screen_redraw = True
+            self.draw()
         debug(self.game_matrix)
 
     def position_choose(self, position):
@@ -96,8 +132,44 @@ class TicTacToe:
                     debug('Pressed mouse'+str(position))
                     self.position_choose(position)
                     self.winner = self.detect_win()
+                    self.detect_full_board()
                     if self.winner:
                         print('\''+self.winner+'\' won this round')
+                        self.button()
+                else:
+                    self.button(position)
+
+    def button(self, position=None, type_button='reset'):
+        """Draw and handle buttons"""
+        if type_button == 'reset':
+            reset_w, reset_h = 300, 150
+            reset_x = self.width//2 - reset_w//2
+            reset_y = self.height//2 - reset_h//2
+            reset_pos = (reset_x, reset_y, reset_w, reset_h)
+            if position:
+                rst_diff_x = position[0] - reset_x
+                rst_diff_y = position[1] - reset_y
+                if rst_diff_x < reset_w and rst_diff_x >= 0 and \
+                        rst_diff_y < reset_h and rst_diff_y >=0:
+                    self.draw('basic')
+                    self.screen_redraw = True
+                    self.clear_data()
+            else:
+                pygame.draw.rect(self.screen, self.color_button, reset_pos)
+                reset_text_font = pygame.font.SysFont('freesansbold', reset_h-50)
+                reset_text_surf = reset_text_font.render('Reset', True, self.color_button_font)
+                reset_text_rect = reset_text_surf.get_rect()
+                reset_text_rect.center = (self.width//2, self.height//2)
+                self.screen.blit(reset_text_surf, reset_text_rect)
+
+    def detect_full_board(self):
+        """Return True if board is full"""
+        for i in range(0, self.number_rows):
+            for j in range(0, self.number_columns):
+                if self.game_matrix[i][j] is None:
+                    return False
+        self.winner = 'full_board'
+        return True
 
     def detect_win(self):
         """Detect if user won this round
@@ -147,25 +219,15 @@ class TicTacToe:
     def play(self):
         """Join all elements and do most of drawing"""
         debug(self.game_matrix)
+        self.draw('basic')
+        pygame.display.update()
         while self.game_active:
             self.handle_events()
-            self.screen.fill(self.background_color)
-            for i in range(1, self.number_columns):
-                pygame.draw.line(self.screen, self.line_color,
-                        [i*self.pos_dim[0], 0],
-                        [i*self.pos_dim[0], self.height],
-                        self.line_size)
-            for i in range(1, self.number_rows):
-                pygame.draw.line(self.screen, self.line_color,
-                        [0, i*self.pos_dim[1]],
-                        [self.width, i*self.pos_dim[1]],
-                        self.line_size)
-            for i in self.X_list:
-                self.screen.blit(self.X, i)
-            for i in self.O_list:
-                self.screen.blit(self.O, i)
-            pygame.display.flip()
 
+            if self.screen_redraw:
+                pygame.display.update()
+                self.screen_redraw = False
+            pygame.time.wait(50)
 
 
 Game = TicTacToe()
