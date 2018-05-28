@@ -22,9 +22,79 @@ def debug(msg, active_debugging=True, end_=None):
             print(msg, end=end_)
         else:
             print(msg)
+            
+
+class GameAI:
+    def __init__(self, current_board=None):
+        self.current_board=current_board
+
+
+    def minmax(self, scores, depth=None, node_index=None, maximalizer=None, 
+            h=None):
+        """
+         Returns the optimal value a maximizer can obtain.
+           depth     - current depth in game tree.
+           nodeIndex - index of current node in scores[].
+           isMax     - true if current move is of maximizer, else false
+           scores[]  - stores leaves of Game tree.
+           h         - maximum height of Game tree
+        """
+        if scores.__class__.__name__ != 'list':
+            raise Exception('scores is not list')
+        if depth == None:
+            depth = 0
+        if node_index == None:
+            node_index = 0
+        if maximalizer == None:
+            maximalizer = True
+        if h == None:
+            h = math.floor(math.log2(len(scores)))
+
+        if h == depth:
+            return scores[node_index]
+        if maximalizer:
+            return max(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2, 
+                maximalizer=False, h=h),
+                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1, 
+                maximalizer=False, h=h))
+        else:
+            return min(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2, 
+                maximalizer=True, h=h),
+                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1, 
+                maximalizer=True, h=h))
+
+    def evaluate(self, board=None):
+        if board == None:
+            board = self. current_board
+        print(board.__class__.__name__)
+                
+
+class GameBasicData:
+    def __init__(self):
+        self.number_columns, self.number_rows = 4, 4 
+        self.combo_length = 3
+        self.game_matrix = [[None for i in range(self.number_columns)]\
+                for j in range(self.number_rows)]
+        self.ai_player = None
+        self.current_player = 'X'
+        self.winner = None 
+
+
+
 
 class TicTacToe:
     def __init__(self):
+
+        self.number_columns, self.number_rows = 4, 4 
+        self.combo_length = 3
+        self.game_matrix = [[None for i in range(self.number_columns)]\
+                for j in range(self.number_rows)]
+        self.ai_player = None
+        self.current_player = 'X'
+        self.winner = None 
+
+
+
         pygame.init()
         self.game_active = True
         
@@ -36,14 +106,8 @@ class TicTacToe:
         self.color_button = 51, 51, 51
         self.color_button_font =  255, 255, 255
         self.line_size = 4
-
-        self.number_columns, self.number_rows = 4, 3 
-        self.combo_length = 3
-        self.game_matrix = [[None for i in range(self.number_columns)]\
-                for j in range(self.number_rows)]
         self.pos_dim = self.width/self.number_columns, self.height/self.number_rows
 
- 
         self.X = pygame.image.load(os.path.join('game','img','X.png'))
         self.X = pygame.transform.scale(self.X, 
                 (self.width//self.number_columns, self.height//self.number_rows))
@@ -55,8 +119,6 @@ class TicTacToe:
         self.Orect = self.O.get_rect()
         self.O_list = []
  
-        self.current_player = 'X'
-        self.winner = None
 
     def clear_data(self):
         """Clear current game data"""
@@ -216,6 +278,16 @@ class TicTacToe:
                     return list_elements_to_check[0]
                 list_elements_to_check = []
 
+    def ai_opponent(self):
+        if self.ai_player:
+            if self.current_player == self.ai_player:
+                pass
+
+        AI = GameAI(self.game_matrix)
+        AI.evaluate()
+
+
+
     def play(self):
         """Join all elements and do most of drawing"""
         debug(self.game_matrix)
@@ -224,13 +296,19 @@ class TicTacToe:
         while self.game_active:
             self.handle_events()
 
+            self.ai_opponent()
             if self.screen_redraw:
                 pygame.display.update()
                 self.screen_redraw = False
-            pygame.time.wait(50)
+            pygame.time.wait(500)
 
 
 Game = TicTacToe()
 Game.play()
+
+AI = GameAI()
+#tmp_var = [5,7,10,2,3,15,33,8]
+tmp_var = [3, 5, 2, 9, 12, 5, 23, 23]
+#print(AI.minmax(tmp_var))
 
 
