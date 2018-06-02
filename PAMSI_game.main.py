@@ -5,8 +5,11 @@
 
 import os
 import math
+import copy
+import time
 
 import pygame
+
 
 __author__ = 'Kornel Stefańczykr'
 __license__ = 'CC BY-SA'
@@ -22,17 +25,20 @@ def debug(msg, active_debugging=True, end_=None):
             print(msg, end=end_)
         else:
             print(msg)
-            
+
 
 class GameAI:
-    def __init__(self, current_data=None, max_player=None, depth=None):
+    def __init__(self, current_data=None, max_player=None, max_depth=None):
         self.current_data=current_data
         if max_player: self.max_player = max_player
         else:          self.max_player = self.current_data.ai_player
-        if depth: self.depth = depth
-        else:     self.depth = 0
+        if max_depth: self.max_depth = max_depth
+        else:     self.max_depth = self.current_data.ai_max_depth
+        self.best_move = None
+        self.MIN = -1000
+        self.MAX = 1000
 
-    def minmax(self, scores, depth=None, node_index=None, maximalizer=None, 
+    def minmax(self, scores, depth=None, node_index=None, maximalizer=None,
             h=None):
         """
          Returns the optimal value a maximizer can obtain.
@@ -56,42 +62,125 @@ class GameAI:
         if h == depth:
             return scores[node_index]
         if maximalizer:
-            return max(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2, 
+            return max(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2,
                 maximalizer=False, h=h),
-                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1, 
+                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1,
                 maximalizer=False, h=h))
         else:
-            return min(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2, 
+            return min(self.minmax(scores=scores, depth=depth+1, node_index=node_index*2,
                 maximalizer=True, h=h),
-                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1, 
+                self.minmax(scores=scores, depth=depth+1, node_index=node_index*2+1,
                 maximalizer=True, h=h))
 
-    def evaluate(self, board=None):
+    def minmax_alpha_beta(self, board=None, depth=None, alpha=None, beta=None,
+            player=None, max_depth=None):
+        if alpha == None:
+            alpha = self.MIN
+        if beta == None:
+            beta = self.MAX
+        if depth == None:
+            depth = 0
         if board == None:
             board = self.current_data.matrix
+        if max_depth == None:
+            max_depth = self.max_depth
+        if player == None:
+            player = self.current_data.current_player
+        winner = self.current_data.find_winner(board=board,
+                mem_mode=False)
+        if winner:
+            return self.evaluate(board, depth)
+        if depth >= max_depth:
+            return self.evaluate(board, depth)
+        depth += 1
+        posible_moves = self.find_all_moves(board=board)
+        if player == self.current_data.ai_player:
+            for move in posible_moves:
+                tmp_board = self.current_data.return_board(old_board=board,
+                        mov_row=move[0], mov_col=move[1],
+                        mov_usr=player)
+                result = self.minmax_alpha_beta(board=tmp_board,depth=depth,
+                        alpha=alpha, beta=beta,
+                        player=self.current_data.return_oponent(oponent_to=player))
+                if result > alpha:
+                    alpha = result
+                    if depth == 1:
+                        self.best_move = move
+                elif alpha >= beta:
+                    return alpha
+            return alpha
+        else:
+            for move in posible_moves:
+                tmp_board = self.current_data.return_board(old_board=board,
+                        mov_row=move[0], mov_col=move[1],
+                        mov_usr=player)
+                result = self.minmax_alpha_beta(board=tmp_board,depth=depth,
+                        alpha=alpha, beta=beta,
+                        player=self.current_data.return_oponent(oponent_to=player))
+                if result < beta:
+                    beta = result
+                    if depth == 1:
+                        self.best_move = move
+                elif alpha >= beta:
+                    return beta
+            return beta
+
+    def best_move(self):
+        """Return row and column of best move"""
+        if self.best_move != None:
+            return self.best_move[0], self.best_move[1]
+
+    def evaluate(self, board=None, depth=None):
+        if board == None:
+            board = self.current_data.matrix
+        if depth == None:
+            depth = 0
         winner = self.current_data.detect_win(board)
         if winner:
             if winner == self.max_player:
-                return 10
+                return 10-depth
             else:
-                return -10
+                return depth-10
         else:
             return 0
 
+    def find_all_moves(self,board=None):
+        moves_list = []
+        if board == None:
+            board = self.current_data.matrix
+        for i in range(0, self.current_data.number_rows):
+            for j in range(0, self.current_data.number_columns):
+                if board[i][j] is None:
+                    moves_list.append([i, j])
+        return moves_list
+
+
 
 class GameBasicData:
-    def __init__(self):
-        self.number_columns, self.number_rows = 3, 3 
+    def __init__(self,matrix=None):
+        self.number_columns, self.number_rows = 4, 4
         self.combo_length = 3
+        if matrix == None:
+            self.matrix = [[None for i in range(self.number_columns)]\
+                for j in range(self.number_rows)]
+        else: self.matrix = matrix
+        self.ai_max_depth = 7
+        self.ai_player = 'O'
+        self.current_player = 'X'
+        self.winner = None
+        self.player_list = ['X', 'O']
+
+    def clear_data(self):
+        """Clear current game data"""
         self.matrix = [[None for i in range(self.number_columns)]\
                 for j in range(self.number_rows)]
-        self.ai_player = None
         self.current_player = 'X'
-        self.winner = None 
+        self.winner = None
+
 
     def detect_win(self, board=None):
         """Detect if user won this round
-        
+
         Return name of winner"""
         if board == None:
             board = self.matrix
@@ -116,7 +205,7 @@ class GameBasicData:
                     return list_elements_to_check[0]
                 list_elements_to_check = []
 
-        #detect horizontal 
+        #detect horizontal
         for i in range(0, self.number_rows):
             for j in range(0, self.number_columns-self.combo_length+1):
                 for k in range(0, self.combo_length):
@@ -126,7 +215,7 @@ class GameBasicData:
                     return list_elements_to_check[0]
                 list_elements_to_check = []
 
-        #detect vertical 
+        #detect vertical
         for i in range(0, self.number_rows-self.combo_length+1):
             for j in range(0, self.number_columns):
                 for k in range(0, self.combo_length):
@@ -135,6 +224,62 @@ class GameBasicData:
                         for i in list_elements_to_check):
                     return list_elements_to_check[0]
                 list_elements_to_check = []
+        return None
+
+    def detect_full_board(self,board=None):
+        """Return True if board is full"""
+        if board == None:
+            board = self.matrix
+        for i in range(0, self.number_rows):
+            for j in range(0, self.number_columns):
+                if board[i][j] is None:
+                    return False
+        return True
+
+    def find_winner(self, board=None, mem_mode=True):
+        if mem_mode:
+            self.winner = self.detect_win(board)
+            if not self.winner:
+                self.winner = self.detect_full_board(board)
+                if self.winner == False:
+                    self.winner = None
+                else:
+                    self.winner = 'full_board'
+        else:
+            tmp_winner = self.detect_win(board)
+            if not tmp_winner:
+                tmp_winner = self.detect_full_board(board)
+            return tmp_winner
+
+    def return_board(self,old_board=None,mov_row=None,mov_col=None,
+            mov_usr=None):
+        if old_board == None:
+            old_board = self.matrix
+        new_board = copy.deepcopy(old_board)
+        if mov_row != None and mov_col != None and mov_usr != None:
+            new_board[mov_row][mov_col] = mov_usr
+        return new_board
+
+    def return_oponent(self, oponent_to=None):
+        if oponent_to == None:
+            oponent_to = self.current_player
+        for tmp_oponent in self.player_list:
+            if tmp_oponent != oponent_to:
+                return tmp_oponent
+
+    def close_round(self):
+        self.current_player = self.return_oponent()
+
+    def is_board_empty(self,board=None):
+        """Return True if board is empty"""
+        if board == None:
+            board = self.matrix
+        for i in range(0, self.number_rows):
+            for j in range(0, self.number_columns):
+                if board[i][j] != None:
+                    return False
+        return True
+
 
 
 class TicTacToe:
@@ -144,7 +289,8 @@ class TicTacToe:
 
         pygame.init()
         self.game_active = True
-        
+        self.winner_was_displayed = False
+
         self.size = self.width, self.height = 720, 720
         self.screen = pygame.display.set_mode(self.size)
         self.screen_redraw = False
@@ -156,24 +302,23 @@ class TicTacToe:
         self.pos_dim = self.width/self.game.number_columns, self.height/self.game.number_rows
 
         self.X = pygame.image.load(os.path.join('game','img','X.png'))
-        self.X = pygame.transform.scale(self.X, 
+        self.X = pygame.transform.scale(self.X,
                 (self.width//self.game.number_columns, self.height//self.game.number_rows))
         self.Xrect = self.X.get_rect()
         self.X_list = []
         self.O = pygame.image.load(os.path.join('game','img','O.png'))
-        self.O = pygame.transform.scale(self.O, 
+        self.O = pygame.transform.scale(self.O,
                 (self.width//self.game.number_columns, self.height//self.game.number_rows))
         self.Orect = self.O.get_rect()
         self.O_list = []
- 
+
     def clear_data(self):
         """Clear current game data"""
-        self.game.matrix = [[None for i in range(self.game.number_columns)]\
-                for j in range(self.game.number_rows)]
+        self.game.clear_data()
         self.X_list = []
         self.O_list = []
-        self.game.current_player = 'X'
-        self.game.winner = None
+        self.winner_was_displayed = False
+
 
     def draw(self, type_draw='last_element'):
         """Drawing grid and newly added elements"""
@@ -217,35 +362,39 @@ class TicTacToe:
         """Detecting where user clicked mouse on screen and adding elent to lists"""
         tab_pos = math.floor(position[1]/self.pos_dim[1])\
                 , math.floor(position[0]/self.pos_dim[0])
-        debug('Position on screen '+str(position)+', pos in game '+str(tab_pos)) 
+        debug('Position on screen '+str(position)+', pos in game '+str(tab_pos))
         if self.game.matrix[tab_pos[0]][tab_pos[1]] is None:
-            self.add_choose(tab_pos[1], tab_pos[0], self.game.current_player) 
-            if self.game.current_player == 'X':
-                self.game.current_player = 'O'
-            elif self.game.current_player == 'O':
-                self.game.current_player = 'X'
+            self.add_choose(tab_pos[1], tab_pos[0], self.game.current_player)
+            self.game.close_round()
         else:
             print('This position is not empty! It was checked by '+
                     str(self.game.matrix[tab_pos[0]][tab_pos[1]])+
                     '. Current player round '+ self.game.current_player)
 
+
     def handle_events(self):
         """Handle quit and mouse click"""
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: 
+            if event.type == pygame.QUIT:
                 self.game_active = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 position = pygame.mouse.get_pos()
                 if self.game.winner is None:
                     debug('Pressed mouse'+str(position))
                     self.position_choose(position)
-                    self.game.winner = self.game.detect_win()
-                    self.detect_full_board()
-                    if self.game.winner:
-                        print('\''+self.game.winner+'\' won this round')
-                        self.button()
                 else:
                     self.button(position)
+        self.game.find_winner()
+        if self.game.winner:
+            if not self.winner_was_displayed:
+                if self.game.winner == 'full_board':
+                    debug('You got a draw')
+                else:
+                    debug('\''+self.game.winner+'\' won this round')
+                debug('\n=============================================')
+                self.winner_was_displayed = True
+                self.button()
+
 
     def button(self, position=None, type_button='reset'):
         """Draw and handle buttons"""
@@ -270,23 +419,30 @@ class TicTacToe:
                 reset_text_rect.center = (self.width//2, self.height//2)
                 self.screen.blit(reset_text_surf, reset_text_rect)
 
-    def detect_full_board(self):
-        """Return True if board is full"""
-        for i in range(0, self.game.number_rows):
-            for j in range(0, self.game.number_columns):
-                if self.game.matrix[i][j] is None:
-                    return False
-        self.game.winner = 'full_board'
-        return True
 
     def ai_opponent(self):
         """Handle mode player vs AI"""
-        if self.game.ai_player:
+        if self.game.ai_player and not self.game.winner:
             if self.game.current_player == self.game.ai_player:
-                pass
+                if not self.game.is_board_empty():
+                    pygame.time.wait(250)
+                start_time = time.time()
+                AI = GameAI(self.game)
+                result = AI.minmax_alpha_beta()
+                debug('Result of mixmax alfa beta puring '+str(result))
+                end_time = time.time()
+                debug('Time of calculating move: %.2f' %(end_time-start_time))
 
-        AI = GameAI(self.game)
-        print(AI.evaluate())
+                #(end_time-start_time)
+
+                move = AI.best_move
+                debug("Move "+str(move))
+                move_row, move_col = move[0], move[1]
+                #move_row, move_col = AI.best_move()
+                self.add_choose(column=move_col, row=move_row,
+                        player=self.game.ai_player)
+                self.game.close_round()
+
 
     def play(self):
         """Join all elements and do most of drawing"""
@@ -294,9 +450,10 @@ class TicTacToe:
         self.draw('basic')
         pygame.display.update()
         while self.game_active:
-            self.handle_events()
 
             self.ai_opponent()
+            self.handle_events()
+
             if self.screen_redraw:
                 pygame.display.update()
                 self.screen_redraw = False
@@ -305,10 +462,5 @@ class TicTacToe:
 
 Game = TicTacToe()
 Game.play()
-
-AI = GameAI()
-#tmp_var = [5,7,10,2,3,15,33,8]
-tmp_var = [3, 5, 2, 9, 12, 5, 23, 23]
-#print(AI.minmax(tmp_var))
 
 
