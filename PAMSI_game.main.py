@@ -9,11 +9,12 @@ import copy
 import time
 
 import pygame
+import tkinter as tk
 
 
 __author__ = 'Kornel Stefańczykr'
 __license__ = 'CC BY-SA'
-__version__ = '0.4'
+__version__ = '0.5'
 __maintainer__ = 'Kornel Stefańczyk'
 __email__ = 'kornelstanczyk@wp.pl'
 
@@ -158,7 +159,7 @@ class GameAI:
 
 class GameBasicData:
     def __init__(self,matrix=None):
-        self.number_columns, self.number_rows = 4, 4
+        self.number_columns, self.number_rows = 3, 3
         self.combo_length = 3
         if matrix == None:
             self.matrix = [[None for i in range(self.number_columns)]\
@@ -166,15 +167,16 @@ class GameBasicData:
         else: self.matrix = matrix
         self.ai_max_depth = 7
         self.ai_player = 'O'
-        self.current_player = 'X'
+        self.first_player = 'X'
+        self.current_player = self.first_player
         self.winner = None
         self.player_list = ['X', 'O']
 
-    def clear_data(self):
+    def clear_board(self):
         """Clear current game data"""
         self.matrix = [[None for i in range(self.number_columns)]\
                 for j in range(self.number_rows)]
-        self.current_player = 'X'
+        self.current_player = self.first_player
         self.winner = None
 
 
@@ -283,9 +285,16 @@ class GameBasicData:
 
 
 class TicTacToe:
-    def __init__(self):
-
-        self.game = GameBasicData()
+    def __init__(self,game=None, menu=True):
+        if game:
+            self.game = game
+        else:
+            self.game = GameBasicData()
+            if menu:
+                set_board = SetGameProperties()
+                set_board.get_all_values()
+                set_board.save_all_values(data_base=self.game)
+                self.game.clear_board()
 
         pygame.init()
         self.game_active = True
@@ -314,7 +323,7 @@ class TicTacToe:
 
     def clear_data(self):
         """Clear current game data"""
-        self.game.clear_data()
+        self.game.clear_board()
         self.X_list = []
         self.O_list = []
         self.winner_was_displayed = False
@@ -371,7 +380,6 @@ class TicTacToe:
                     str(self.game.matrix[tab_pos[0]][tab_pos[1]])+
                     '. Current player round '+ self.game.current_player)
 
-
     def handle_events(self):
         """Handle quit and mouse click"""
         for event in pygame.event.get():
@@ -394,7 +402,6 @@ class TicTacToe:
                 debug('\n=============================================')
                 self.winner_was_displayed = True
                 self.button()
-
 
     def button(self, position=None, type_button='reset'):
         """Draw and handle buttons"""
@@ -419,7 +426,6 @@ class TicTacToe:
                 reset_text_rect.center = (self.width//2, self.height//2)
                 self.screen.blit(reset_text_surf, reset_text_rect)
 
-
     def ai_opponent(self):
         """Handle mode player vs AI"""
         if self.game.ai_player and not self.game.winner:
@@ -443,7 +449,6 @@ class TicTacToe:
                         player=self.game.ai_player)
                 self.game.close_round()
 
-
     def play(self):
         """Join all elements and do most of drawing"""
         debug(self.game.matrix)
@@ -458,6 +463,147 @@ class TicTacToe:
                 pygame.display.update()
                 self.screen_redraw = False
             pygame.time.wait(50)
+
+
+class SetGameProperties:
+    def __init__(self):
+        self.combo_length_min, self.combo_length_max = \
+            self.board_size_min, self.board_size_max = 3, 10
+        self.max_depth_low, self.max_depth_high = 0, 12
+        self.ai_player = [['X', 'X'], ['O', 'O'],
+                ['None (Player vs player)', None]]
+        self.first_player = [['X', 'X'], ['O', 'O']]
+        self.var_board_size = 3
+        self.var_combo_length = 3
+        self.var_max_depth = 9
+        self.var_idx_ai_player = 1
+        self.var_ai_player =  self.ai_player[self.var_idx_ai_player][1]
+        self.var_idx_first_player = 0
+        self.var_first_player =  \
+                self.first_player[self.var_idx_first_player][1]
+
+    def get_board_size(self):
+        print('Choose board size. You can choose between '+
+                str(self.board_size_min)+' and '+str(self.board_size_max)+
+                '. Default: '+str(self.var_board_size)+'.')
+        val = get_integer(text_to_display='Insert integer or press ENTER to choose default ',
+                min_value=self.board_size_min,
+                max_value=self.board_size_max,
+                nothing_as_None=True)
+        if val:
+            self.var_board_size = val
+
+    def get_combo_length(self):
+        print('Choose combo length. You can choose between '+
+                str(self.combo_length_min)+' and '+str(self.combo_length_max)+
+                '. Default: '+str(self.var_combo_length)+'.')
+        val = get_integer(text_to_display='Insert integer or press ENTER to choose default ',
+                min_value=self.combo_length_min,
+                max_value=self.combo_length_max,
+                nothing_as_None=True)
+        if val:
+            self.var_combo_length = val
+
+    def get_max_depth(self):
+        print('Choose difficult level(number of calculating moves by \
+minmax alpha beta pruning). \nYou can choose between '+
+                str(self.max_depth_low)+' and '+str(self.max_depth_high)+
+                '. Default: '+str(self.var_max_depth)+'.')
+        val = get_integer(text_to_display='Insert integer or press ENTER to choose default ',
+                min_value=self.max_depth_low,
+                max_value=self.max_depth_high,
+                nothing_as_None=True)
+        if val:
+            self.var_max_depth = val
+
+    def get_ai_player(self):
+        print('Choose ai player. Default: '+
+                self.ai_player[self.var_idx_ai_player][0]+
+                ' You can choose between: ')
+        for i in range(0, len(self.ai_player)):
+            print('{0:25} choose {1:d}'.format(self.ai_player[i][0],i))
+        val = get_integer(text_to_display='Insert integer or press ENTER to choose default ',
+                min_value=0,
+                max_value=len(self.ai_player)-1,
+                nothing_as_None=True)
+        if val:
+            self.var_idx_ai_player = val
+            self.var_ai_player = self.ai_player[self.var_idx_ai_player][1]
+
+    def get_first_player(self):
+        print('Choose first player. Default: '+
+                self.first_player[self.var_idx_first_player][0]+
+                ' You can choose between: ')
+        for i in range(0, len(self.first_player)):
+            print('{0:15} choose {1:d}'.format(self.first_player[i][0],i))
+        val = get_integer(text_to_display='Insert integer or press ENTER to choose default ',
+                min_value=0,
+                max_value=len(self.first_player)-1,
+                nothing_as_None=True)
+        if val:
+            self.var_idx_first_player = val
+            self.var_first_player = self.first_player[self.var_idx_first_player][1]
+
+    def get_all_values(self):
+        self.get_board_size()
+        self.get_combo_length()
+        self.get_first_player()
+        self.get_ai_player()
+        if self.var_ai_player:
+            self.get_max_depth()
+
+    def save_all_values(self,data_base=None,debug=False):
+        if debug:
+            print(self.var_board_size)
+            print(self.var_combo_length)
+            print(self.var_max_depth)
+            print(self.var_idx_ai_player)
+            print(self.var_ai_player)
+            print(self.var_idx_first_player)
+            print(self.var_first_player)
+        if data_base:
+            data_base.number_rows = data_base.number_columns =\
+                self.var_board_size
+            data_base.combo_length = self.var_combo_length
+            data_base.ai_max_depth = self.var_max_depth
+            data_base.ai_player = self.var_ai_player
+            data_base.first_player = self.var_first_player
+
+
+def get_integer(text_to_display='', min_value=None,
+        max_value=None, nothing_as_None=False):
+    try:
+        val = str(input(text_to_display))
+        if (val == '') and nothing_as_None:
+            return None
+        val = int(val)
+        if min_value and val<min_value:
+            raise NameError('low')
+        if max_value and val>max_value:
+            raise NameError('high')
+        return val
+    except ValueError:
+        print('You typped wrong value. Please do it again correctly.')
+        return get_integer(text_to_display=text_to_display,
+                min_value=min_value, max_value=max_value,
+                nothing_as_None=nothing_as_None)
+    except NameError:
+        if min_value and max_value:
+            print('You should type value between '+str(min_value)+' and '+
+                    str(max_value)+' Please do it again correctly.')
+        elif min_value:
+            print('You should type value greater or equal than '+str(min_value)+
+                    '. Please do it again correctly.')
+        elif max_value:
+            print('You should type value less or equal than '+str(max_value)+
+                    '. Please do it again correctly.')
+        else:
+            print('You typped wrong value. Please do it again correctly.')
+
+        return get_integer(text_to_display=text_to_display,
+                min_value=min_value, max_value=max_value,
+                nothing_as_None=nothing_as_None)
+
 
 
 Game = TicTacToe()
