@@ -1,0 +1,57 @@
+Sprawozdanie z laboratoriów nr 1
+
+Kornel Stefańczyk
+nr albumu 235420
+
+Podczas kompilacji nastąpiły błędy:
+
+1. pierwszy wyeliminowałem poprzez dodanie brakującego f w poleceniu
+printf (było print).
+
+2. kolejnym błędem jaki naprawiłem było uzupełnienie ; w 22 lini.
+
+
+Poza błędami w kompilacji pojawiły się także błędy logiczne w tym
+programie:
+
+1. Głównym problemem był brak jednego znaku "=" co w 20 lini tworzyło
+znak przypisania a wartości 0 zamiast porównania a z wartością 0
+Wynikiem tego błędu było wypisywanie w terminalu wartości "x1=-Inf" i
+"x2=NaN".
+
+Celem testu było sprawdzenie czy program zachowuje się poprawnie dal
+każdego rodzaju danych wejściowych.
+
+Dane które używałem do sprawdzenia programu:
+
+Dla delta < 0
+
+Podaj wartosc a:1
+Podaj wartosc b:2
+Podaj wartosc c:2
+Brak rozwiazan rzeczywistych
+
+Dla delta > 0
+
+Podaj wartosc a:-1
+Podaj wartosc b:2
+Podaj wartosc c:3
+Rozwiazaniem sa x1=3.000000 i x2=-1.000000
+
+Dla delta = 0
+
+Podaj wartosc a:1
+Podaj wartosc b:2
+Podaj wartosc c:1
+Rozwiazaniem sa x1=x2=-1.000000
+
+Dla a = 0
+
+Podaj wartosc a:0
+Podaj wartosc b:2
+Podaj wartosc c:2
+Jest to r�wnanie liniowe o rozwiazaniu x=-1.000000
+
+
+Po zmianach w kodzie które wprowadziłem program kompiluje się i
+zachowuje się poprawnie przy różnych danych wejściowych.

@@ -1,0 +1,46 @@
+
+bool Scena::SprawdzCzyKolizja()
+{
+  for(const shared_ptr< ObiektGraficzny > &wsk : _obiekty )
+    if( wsk != _aktOb ){
+      if( wsk->PodajTyp() == ROBOT ){
+	if( CzyOkregiNachodza(wsk, _aktOb) )
+	  return true;
+      }else if( wsk->PodajTyp() == PRZESZKODA )
+	if (CzyNalezyDoObiektu(wsk, _aktOb) )
+	  return true;
+    }
+  return false;
+}
+
+bool Scena::CzyNalezyDoObiektu(const shared_ptr<ObiektGraficzny>& _wsk,
+			       const shared_ptr<ObiektGraficzny>& _potwsk,
+			       int blad) const
+{
+  float x_min = (_wsk->Wsp_Xmin())-(_potwsk->Promien())-blad;
+  float y_min = (_wsk->Wsp_Ymin())-(_potwsk->Promien())-blad;
+  float x_max = (_wsk->Wsp_Xmax())+(_potwsk->Promien())+blad;
+  float y_max = (_wsk->Wsp_Ymax())+(_potwsk->Promien())+blad;
+  float x_rob = _potwsk->Wsp_X();
+  float y_rob = _potwsk->Wsp_Y();
+
+  if( (x_rob >= x_min) && (x_rob <= x_max) )
+    if( (y_rob >= y_min) && (y_rob <= y_max) )
+      return true;
+  return false;
+}
+
+
+bool Scena::CzyOkregiNachodza(const shared_ptr<ObiektGraficzny>& _rob1,
+			      const shared_ptr<ObiektGraficzny>& _rob2,
+			      int blad) const
+{
+  Wektor2D OdlSrodkow;
+  float SumaPromieni, dlWektora;
+  
+  SumaPromieni = _rob1->Promien() + _rob2->Promien() + blad; 
+  OdlSrodkow = _rob1->centrum() - _rob2->centrum();
+  dlWektora = &OdlSrodkow;
+  
+  return ( (dlWektora <= SumaPromieni)  true : false );
+}

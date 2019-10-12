@@ -1,0 +1,30 @@
+kill -SIGNAL
+
+2 - SIGINIT - Ctr+C
+9 - SIGKILL
+16 - SIGUSER
+
+
+
+trap 'polecenie' SIGNAL
+trap 'echo"dodalem SIG1"' SIGINIT
+
+C
+#include <signal.h>
+void handler(int sig) { }
+
+main(){
+
+signal(SIGINIT, handler);
+}
+
+
+
+fork bomba
+:(){:|:&};:
+
+
+
+zaadania
+puścić 2 programy  czytające z potoku  zróżnymi priorytetemi i zobaczyć ile przeczytają 
+

@@ -1,0 +1,169 @@
+\hypertarget{class_scena}{\section{Scena Class Reference}
+\label{class_scena}\index{Scena@{Scena}}
+}
+
+
+Modeluje informacje dotyczace Sceny.  
+
+
+
+
+{\ttfamily \#include $<$Scena.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scena_a8f9fe11b4cfef890123a2acc94672e17}{\hyperlink{class_scena_a8f9fe11b4cfef890123a2acc94672e17}{Scena} ()}\label{class_scena_a8f9fe11b4cfef890123a2acc94672e17}
+
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiada obliczenie punktu docelowego ruchu. \end{DoxyCompactList}\item 
+bool \hyperlink{class_scena_a2a314381bd96a25eb210c2f62348205e}{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot} (const char $\ast$s\+Nazwa\+Pliku)
+\begin{DoxyCompactList}\small\item\em Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. \end{DoxyCompactList}\item 
+bool \hyperlink{class_scena_a96d2d0967c6be8a6636d0dde76eac2b1}{Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot} (\hyperlink{class_pz_g_1_1_lacze_do_g_n_u_plota}{Pz\+G\+::\+Lacze\+Do\+G\+N\+U\+Plota} Lacze, const char $\ast$s\+Nazwa\+Pliku, \hyperlink{class_sciezka}{Sciezka} \&Sciezka\+\_\+\+Animowana, \hyperlink{class_robot}{Robot} \&Robot\+\_\+\+Animowany, double dlugosc=0.\+25, int microseconds=40000)
+\begin{DoxyCompactList}\small\item\em Animacja ścieżki wyświetlanej Gnuplotem. \end{DoxyCompactList}\item 
+bool \hyperlink{class_scena_aabf8e0bf0dbbf0ba0685ff0e6fc87e99}{Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot} (\hyperlink{class_pz_g_1_1_lacze_do_g_n_u_plota}{Pz\+G\+::\+Lacze\+Do\+G\+N\+U\+Plota} Lacze, const char $\ast$s\+Nazwa\+Pliku, \hyperlink{class_sciezka}{Sciezka} \&Sciezka\+\_\+\+Animowana, \hyperlink{class_robot}{Robot} \&Robot\+\_\+\+Animowany, int microseconds=40000, double a=1)
+\begin{DoxyCompactList}\small\item\em Animacja obrotu robota wyświetlana Gnuplotem. \end{DoxyCompactList}\item 
+void \hyperlink{class_scena_aa6593ef7b2fd57236692389692bdd4e6}{Dodaj\+\_\+\+Robota} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wsp\+\_\+\+Globalne, double Kat\+\_\+\+Obrotu)
+\begin{DoxyCompactList}\small\item\em Dodaje Robota wraz ze ścieżką. \end{DoxyCompactList}\item 
+void \hyperlink{class_scena_a95407075db2d1d2a38839452c7390dbd}{Dodaj\+\_\+\+Przeszkode} (std\+::vector$<$ double $>$ Wspolrzedne\+\_\+\+Wierzcholkow)
+\begin{DoxyCompactList}\small\item\em Dodaje Przeszkodę. \end{DoxyCompactList}\item 
+\hypertarget{class_scena_a99302d0620b785afe503861f028871bc}{void \hyperlink{class_scena_a99302d0620b785afe503861f028871bc}{Wyswietl\+\_\+\+Typy\+\_\+\+Objektow} ()}\label{class_scena_a99302d0620b785afe503861f028871bc}
+
+\begin{DoxyCompactList}\small\item\em Wyswietla typt wszystkich dodanych objektów. \end{DoxyCompactList}\item 
+\hypertarget{class_scena_a59b56c90ca0e394cde1113706e66c551}{void \hyperlink{class_scena_a59b56c90ca0e394cde1113706e66c551}{Wyswietl\+\_\+\+Wspolrzedne\+\_\+\+Objektow} ()}\label{class_scena_a59b56c90ca0e394cde1113706e66c551}
+
+\begin{DoxyCompactList}\small\item\em Wyswietla współrzędne wszystkich dodanych objektów. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scena_a8e6cf035ed22edfe1ef9a097c8464204}{std\+::list$<$ std\+::shared\+\_\+ptr\\*
+$<$ \hyperlink{class_objekt___graficzny}{Objekt\+\_\+\+Graficzny} $>$ $>$ {\bfseries Ob\+\_\+\+List}}\label{class_scena_a8e6cf035ed22edfe1ef9a097c8464204}
+
+\item 
+\hypertarget{class_scena_a19de28063043b979ed2483a3f50a02e2}{std\+::vector$<$ \hyperlink{class_robot}{Robot} $>$ {\bfseries Rob}}\label{class_scena_a19de28063043b979ed2483a3f50a02e2}
+
+\item 
+\hypertarget{class_scena_aefea7948629d50b33bef40650462c832}{std\+::vector$<$ \hyperlink{class_sciezka}{Sciezka} $>$ {\bfseries Sciez}}\label{class_scena_aefea7948629d50b33bef40650462c832}
+
+\item 
+\hypertarget{class_scena_a08e6af7098790bc02d1ff17ab2a0abe9}{std\+::vector$<$ \hyperlink{class_przeszkoda}{Przeszkoda} $>$ {\bfseries Przeszk}}\label{class_scena_a08e6af7098790bc02d1ff17ab2a0abe9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Modeluje informacje dotyczace Sceny. 
+
+Modeluje zestaw informacji dotyczacych wszystkich objektów występujących na scenie. Udostępnia także metody umozliwiające aktualizowanie wartosci a także zwracanie ich. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scena_aabf8e0bf0dbbf0ba0685ff0e6fc87e99}{\index{Scena@{Scena}!Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot@{Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot}}
+\index{Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot@{Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot}!Scena@{Scena}}
+\subsubsection[{Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Scena\+::\+Animacja\+\_\+\+Obrotu\+\_\+\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{{\bf Pz\+G\+::\+Lacze\+Do\+G\+N\+U\+Plota}}]{Lacze, }
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku, }
+\item[{{\bf Sciezka} \&}]{Sciezka\+\_\+\+Animowana, }
+\item[{{\bf Robot} \&}]{Robot\+\_\+\+Animowany, }
+\item[{int}]{microseconds = {\ttfamily 40000}, }
+\item[{double}]{a = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{class_scena_aabf8e0bf0dbbf0ba0685ff0e6fc87e99}
+
+
+Animacja obrotu robota wyświetlana Gnuplotem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s\+Nazwa\+Pliku} & -\/ Nazwa pliku do którego mają być wypisane wierzchołki \\
+\hline
+\mbox{\tt in}  & {\em Robot\+\_\+\+Animowany} & -\/ \hyperlink{class_robot}{Robot}, który ma być animowany wraz ze ścieżką \\
+\hline
+\mbox{\tt in}  & {\em microseconds} & -\/ długość trwania klatki w animacji \\
+\hline
+\mbox{\tt in}  & {\em a} & -\/ kąt kroku animacji \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scena_a96d2d0967c6be8a6636d0dde76eac2b1}{\index{Scena@{Scena}!Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot@{Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot}}
+\index{Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot@{Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot}!Scena@{Scena}}
+\subsubsection[{Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Scena\+::\+Animacja\+\_\+\+Sciezki\+\_\+\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{{\bf Pz\+G\+::\+Lacze\+Do\+G\+N\+U\+Plota}}]{Lacze, }
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku, }
+\item[{{\bf Sciezka} \&}]{Sciezka\+\_\+\+Animowana, }
+\item[{{\bf Robot} \&}]{Robot\+\_\+\+Animowany, }
+\item[{double}]{dlugosc = {\ttfamily 0.25}, }
+\item[{int}]{microseconds = {\ttfamily 40000}}
+\end{DoxyParamCaption}
+)}}\label{class_scena_a96d2d0967c6be8a6636d0dde76eac2b1}
+
+
+Animacja ścieżki wyświetlanej Gnuplotem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s\+Nazwa\+Pliku} & -\/ Nazwa pliku do którego mają być wypisane wierzchołki \\
+\hline
+\mbox{\tt in}  & {\em Robot\+\_\+\+Animowany} & -\/ \hyperlink{class_robot}{Robot}, który ma być animowany wraz ze ścieżką \\
+\hline
+\mbox{\tt in}  & {\em microseconds} & -\/ długość trwania klatki w animacji \\
+\hline
+\mbox{\tt in}  & {\em dlugosc} & -\/ długość kroku animacji \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scena_a95407075db2d1d2a38839452c7390dbd}{\index{Scena@{Scena}!Dodaj\+\_\+\+Przeszkode@{Dodaj\+\_\+\+Przeszkode}}
+\index{Dodaj\+\_\+\+Przeszkode@{Dodaj\+\_\+\+Przeszkode}!Scena@{Scena}}
+\subsubsection[{Dodaj\+\_\+\+Przeszkode}]{\setlength{\rightskip}{0pt plus 5cm}void Scena\+::\+Dodaj\+\_\+\+Przeszkode (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{Wspolrzedne\+\_\+\+Wierzcholkow}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_scena_a95407075db2d1d2a38839452c7390dbd}
+
+
+Dodaje Przeszkodę. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wspolrzedne\+\_\+\+Wierzcholkow} & -\/ Wspolrzedne wierzcholkow Przeszkody kolejno X1, Y1, X2, Y2 ... \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scena_aa6593ef7b2fd57236692389692bdd4e6}{\index{Scena@{Scena}!Dodaj\+\_\+\+Robota@{Dodaj\+\_\+\+Robota}}
+\index{Dodaj\+\_\+\+Robota@{Dodaj\+\_\+\+Robota}!Scena@{Scena}}
+\subsubsection[{Dodaj\+\_\+\+Robota}]{\setlength{\rightskip}{0pt plus 5cm}void Scena\+::\+Dodaj\+\_\+\+Robota (
+\begin{DoxyParamCaption}
+\item[{{\bf Wektor2\+D}}]{Wsp\+\_\+\+Globalne, }
+\item[{double}]{Kat\+\_\+\+Obrotu}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_scena_aa6593ef7b2fd57236692389692bdd4e6}
+
+
+Dodaje Robota wraz ze ścieżką. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wsp\+\_\+\+Globalne} & -\/ Współrzędne robota względem obecnej sceny \\
+\hline
+\mbox{\tt in}  & {\em Kat\+\_\+\+Obrotu} & -\/ Kąt o jaki ma być obrócony \hyperlink{class_robot}{Robot} względem sceny \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scena_a2a314381bd96a25eb210c2f62348205e}{\index{Scena@{Scena}!Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}}
+\index{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}!Scena@{Scena}}
+\subsubsection[{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Scena\+::\+Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku}
+\end{DoxyParamCaption}
+)}}\label{class_scena_a2a314381bd96a25eb210c2f62348205e}
+
+
+Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s\+Nazwa\+Pliku} & -\/ Nazwa pliku do którego mają być wypisane wierzchołki \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kstefanc/\+P\+O/\+Lab07/\+Lab/prj/inc/\hyperlink{_scena_8hh}{Scena.\+hh}\item 
+/home/kstefanc/\+P\+O/\+Lab07/\+Lab/prj/src/Scena.\+cpp\end{DoxyCompactItemize}

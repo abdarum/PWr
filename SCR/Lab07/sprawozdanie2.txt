@@ -1,0 +1,105 @@
+zad.1
+
+Polecenie strace służy do śledzenia wywołań systemowych i sygnałów.
+
+Flagi pomagające w filtrowaniu:
+-e read=zbior - dokonuje zrzutów szesnastkowych i ascii wszystkich danych odczytywanych z deskryptorów podanych w zbiorze
+-e write=zbior - dokonuje zrzutów szesnastkowych i ascii wszystkich danych zapisywanych do deskryptorów podanych w zbiorze
+-e trace=signal - śledzi wszystkie wywołania związane z sygnałami
+-e signal=zbior - śledzi tylko podany zbiór sygnałów. Użycie operatora =! powoduje wykluczenie tego zbioru ze śledzenia
+-e trace=zbior - śledzi tylko podany zbiór wywołań systemowych
+-e trace=file - śledzi wszystkie wywołania systemowe, które biorą nazwę pliku jako argument
+-e trace=process - śledzi wszystkie wywołania systemowe, które zajmują się zarządzaniem procesami
+
+a) Przykładowe wywołanie programu strace z programem wypisującym na wyjście tekst:
+
+("./a.out", ["./a.out"], [/* 23 vars */]) = 0
+brk(NULL) = 0x5606349a0000
+access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f3eb4e8b000
+access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=82420, ...}) = 0
+mmap(NULL, 82420, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f3eb4e73000
+close(3) = 0
+access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\4\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1689360, ...}) = 0
+mmap(NULL, 3795296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3eb48cb000
+mprotect(0x7f3eb4a60000, 2097152, PROT_NONE) = 0
+mmap(0x7f3eb4c60000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x195000) = 0x7f3eb4c60000
+mmap(0x7f3eb4c66000, 14688, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f3eb4c66000
+close(3) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f3eb4e91000
+arch_prctl(ARCH_SET_FS, 0x7f3eb4e91700) = 0
+mprotect(0x7f3eb4c60000, 16384, PROT_READ) = 0
+mprotect(0x5606342fe000, 4096, PROT_READ) = 0
+mprotect(0x7f3eb4e8e000, 4096, PROT_READ) = 0
+munmap(0x7f3eb4e73000, 82420) = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 7), ...}) = 0
+brk(NULL) = 0x5606349a0000
+brk(0x5606349c1000) = 0x5606349c1000
+write(1, "HEJ 0\n", 6HEJ 0) = 6
+nanosleep({tv_sec=2, tv_nsec=0}, 0x7ffff0e2d040) = 0
+write(1, "HEJ 1\n", 6HEJ 1) = 6
+nanosleep({tv_sec=2, tv_nsec=0}, 0x7ffff0e2d040) = 0
+write(1, "HEJ 2\n", 6HEJ 2) = 6
+nanosleep({tv_sec=2, tv_nsec=0}, 0x7ffff0e2d040) = 0
+write(1, "HEJ 3\n", 6HEJ 3) = 6
+nanosleep({tv_sec=2, tv_nsec=0}, 0x7ffff0e2d040) = 0
+write(1, "HEJ 4\n", 6HEJ 4) = 6
+
+b) Wywołanie strace dla powłoki bash w poszukiwaniu plików konfiguracyjnych:
+execve("/bin/bash", ["bash"], 0x7ffee3478fd0 /* 51 vars */) = 0
+brk(NULL) = 0x55d4f1be8000
+access("/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=78705, ...}) = 0
+mmap(NULL, 78705, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f4d25bb5000
+close(3) = 0
+
+c) Wywołanie strace w celu zliczenia funkcji printf programu ls w katalogu /home:
+Desktop    Muzyka  PO       PP	  SCR	    Wideo
+Dokumenty  Obrazy  Pobrane  Publiczny  Szablony
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000056           8         7           read
+  0.00    0.000000           0         2           write
+  0.00    0.000000           0         9           open
+  0.00    0.000000           0        11           close
+  0.00    0.000000           0        10           fstat
+  0.00    0.000000           0        17           mmap
+  0.00    0.000000           0        12           mprotect
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         3           brk
+  0.00    0.000000           0         2           rt_sigaction
+  0.00    0.000000           0         1           rt_sigprocmask
+  0.00    0.000000           0         2           ioctl
+  0.00    0.000000           0         8         8 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         2           getdents
+  0.00    0.000000           0         1           getrlimit
+  0.00    0.000000           0         2         2 statfs
+  0.00    0.000000           0         1           arch_prctl
+  0.00    0.000000           0         1           set_tid_address
+  0.00    0.000000           0         1           set_robust_list
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000056                    94        10 total
+
+d) Śledzenie programu Vim
+
+
+zad.2
+Polecenie truss służy do śledzenia procesów wywołanych przez system lub zainicjowanych przez użytkownika oraz sygnałów na systemach Solaris.
+
+Flagi filtrujące:
+-r - wyświetla pełną zawartość bufora wejścia/wyjścia dla każdego odczytu na dowolnym deskryptorze pliku 
+-s - pozwala śledzić lub wykluczać wybrane sygnały
+-t - obejmuje lub wyklucza podane wywołania systemowe z procesu śledzenia
+-u - śledzi dynamicznie ładowanych funkcji z biblioteki użytkownika
+-w - wyświetla zawartość bufora wejścia/wyjścia dla każdego zapisu na dowolnym deskryptorze pliku.
+
+mrutkows@panamint:~/SCR/7LAB$ 
+

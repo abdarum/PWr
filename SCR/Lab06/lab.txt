@@ -1,0 +1,27 @@
+top 
+top shift + p
+top shift + m
+
+htop
+
+
+<unistd.h>
+
+sleep(int czas_s)
+czasy
+0.01s 1000razy
+
+
+signal(SIGINT, handler); SIG_ING 1c)
+
+handler(int x){} - bardzo krótka funkcja(jak przerwanie), tylko ustawia flagi
+
+użyć synałów
+SIGINT Ctrl+c
+SIGQUIT Ctrl+/(backslash)
+
+pętla nieskończona while(true) sprawdza flagi
+
+
+zad 1 skrypt
+zad 2 zapoznałem sie /nie

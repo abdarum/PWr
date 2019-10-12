@@ -1,0 +1,28 @@
+Zadanie 1
+ps -e wybór wszystkich procesów
+ps -f wyświetla w pełnym formacie
+ps -l wyświetla w długim formacie
+ps -u USER pokazuje procesy użytkownika USER
+ps -t TERMINAL pokazuje procesy aktywne na terminalu TERMINAL
+ps -p PID wyświetla procesy o podanym numerze PID
+
+W chwili uruchomia istniało 12 procesów
+
+W serwerze istniało łącznie 33 procesy sshd. Poleccenie pgrep sshd -c
+
+Zadanie 2
+Uruchomiłem w bashu sh, a w nim kolejnego basha. Zabijając proces sh(ten w środku) pierwszy bash pozostał w niezmienionej formie, a ten, który był uruchomiony z sh przybrał PPID jako 1, czyli jego rodzicem stał się proces init.
+
+Zadanie 3
+
+Gdy włączyłem skrypt przesyłający "Hi" co 5 sekund, a jego wyjście przekierowałem pipe na program cat, podłączając pod to kolejny cat( ./skrypt | cat | cat ) wyświetliłem procesy uruchomione na odpowiednim terminalu. Z wyjścia polecenia ps można wywnioskować, że kolejne procesy połączone potokami posiadają różne PID, ale PPID jest takie samo, czyli mają wspólnego rodzica, a nie są uruchamiane kaskadowo.
+
+Zadanie 4
+Dane które przychodzą są odbierane przez potok i z niego usuwane. Gdy z potoku czyta wiele programów, każdy z nich dostaje jakąś część informacji przesłanych do potoku, jednak nie jest to całość, która została wysłana do potoku.
+
+Gdy uruchomimy cat w celu czytania, ale żaden program nie będzie pisał do potoku, to program cat czeka na odebranie jakichś informacji. Po przekazaniu informacji potok  przekazuje dane, a program cat się zamyka. W odwrotnej sytuacji dzieje się rzecz podobna, ponieważ wpisujący program do potoku nie uruchomi się dopóki nie zostanie rozpoczęte czytanie z potoku. Po wysłaniu komunikatu oba programy(piszący i czytający) kończą pracę.
+
+Po uruchomieniu programu wysyłającego dane do potoku repetywnie, gdy zamkniemy program odczytujący informacje program piszący nie będzie mógł wysłać komunikatu i zostanie również zamknięty, podobnie jak dla pojedynczej informacji.
+
+Podsumowując komunikacja przez potok jest możliwa, tylko gdy obie strony pisażca i odbierająca są dostępne.
+

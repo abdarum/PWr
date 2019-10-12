@@ -1,0 +1,16 @@
+dzialania.cpp: In function ‘bool WczytajSymbol(Symbol&)’:
+dzialania.cpp:298:20: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   char* tabSymboli="eabcd";
+                    ^
+dzialania.cpp: In function ‘void WypiszSymbol(Symbol)’:
+dzialania.cpp:310:20: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   char* tabSymboli="eabcd";
+                    ^
+dzialania.cpp: In function ‘std::ostream& operator<<(std::ostream&, Symbol)’:
+dzialania.cpp:317:19: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   char* tabZnakow="eabcd";
+                   ^
+dzialania.cpp: In function ‘std::istream& operator>>(std::istream&, Symbol&)’:
+dzialania.cpp:341:20: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   char* tabSymboli="eabcd";
+                    ^

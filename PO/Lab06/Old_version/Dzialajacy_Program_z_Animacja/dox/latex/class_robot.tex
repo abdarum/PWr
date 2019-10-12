@@ -1,0 +1,137 @@
+\hypertarget{class_robot}{\section{Robot Class Reference}
+\label{class_robot}\index{Robot@{Robot}}
+}
+
+
+Modeluje informacje dotyczace Robota.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+hh$>$}
+
+
+
+Inheritance diagram for Robot\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_robot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Robot\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_robot__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}{\hyperlink{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}{Robot} ()}\label{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}
+
+\begin{DoxyCompactList}\small\item\em Inicjalizacja Robota w pozycji podstawowej. \end{DoxyCompactList}\item 
+\hypertarget{class_robot_abd8dc62130fa9960f9d304adb71dc208}{\hyperlink{class_robot_abd8dc62130fa9960f9d304adb71dc208}{Robot} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wsp\+\_\+\+Globalne, double Kat\+\_\+\+Obrotu)}\label{class_robot_abd8dc62130fa9960f9d304adb71dc208}
+
+\begin{DoxyCompactList}\small\item\em Inicjalizacja Robota w pozycji podstawowej z ustawieniem wektora translacji. \end{DoxyCompactList}\item 
+\hypertarget{class_robot_ac2e234e257be93e7b9cef8ef4528ad84}{\hyperlink{class_wektor2_d}{Wektor2\+D} \hyperlink{class_robot_ac2e234e257be93e7b9cef8ef4528ad84}{Wektor\+\_\+\+Translacji} () const }\label{class_robot_ac2e234e257be93e7b9cef8ef4528ad84}
+
+\begin{DoxyCompactList}\small\item\em Zwraca współrzędne globalne robota. \end{DoxyCompactList}\item 
+\hypertarget{class_robot_a45e98d34711b9424392853008062e3e3}{void \hyperlink{class_robot_a45e98d34711b9424392853008062e3e3}{Wektor\+\_\+\+Translacji} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wsp\+\_\+\+Globalne)}\label{class_robot_a45e98d34711b9424392853008062e3e3}
+
+\begin{DoxyCompactList}\small\item\em Ustawia współrzędne globalne robota. \end{DoxyCompactList}\item 
+void \hyperlink{class_robot_a4d5ca83fe9dee72eddd8c6df97a0e10d}{Obroc\+O\+Kat} (double a)
+\begin{DoxyCompactList}\small\item\em Obraca prostakat o kat a. \end{DoxyCompactList}\item 
+bool \hyperlink{class_robot_a8e9a1014f600141e9a9514d6622b3394}{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot} (const char $\ast$s\+Nazwa\+Pliku)
+\begin{DoxyCompactList}\small\item\em Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. \end{DoxyCompactList}\item 
+\hypertarget{class_robot_a1a73604f8395ef66e6bf1e470108a77e}{void \hyperlink{class_robot_a1a73604f8395ef66e6bf1e470108a77e}{Wyswietl\+Wspolrzedne\+Format\+Gnuplot} (std\+::ostream \&Strm\+Wy) const }\label{class_robot_a1a73604f8395ef66e6bf1e470108a77e}
+
+\begin{DoxyCompactList}\small\item\em Funkcja wypisuje do strumienia punkty w odpowiednim formacie. \end{DoxyCompactList}\item 
+void \hyperlink{class_robot_a6fd10be0da964daa94eb78bc7f02f879}{Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu} (double a=1)
+\begin{DoxyCompactList}\small\item\em Funkcja przygotowuje punkty pod animację \end{DoxyCompactList}\item 
+void \hyperlink{class_robot_a902a2c6e7e53d75b686a019a455916d8}{Animacja\+\_\+\+Obrotu\+\_\+\+Robota} (std\+::ostream \&Strm\+Wy, double a=1)
+\begin{DoxyCompactList}\small\item\em Funkcja wypisuje kolejne punkty posrednie do strumienia tworząc animację obrotu robota. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Modeluje informacje dotyczace Robota. 
+
+Modeluje zestaw informacji dotyczacych Robota. Udostępnia także metody umozliwiające aktualizowanie wartosci a także zwracanie ich. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_robot_a902a2c6e7e53d75b686a019a455916d8}{\index{Robot@{Robot}!Animacja\+\_\+\+Obrotu\+\_\+\+Robota@{Animacja\+\_\+\+Obrotu\+\_\+\+Robota}}
+\index{Animacja\+\_\+\+Obrotu\+\_\+\+Robota@{Animacja\+\_\+\+Obrotu\+\_\+\+Robota}!Robot@{Robot}}
+\subsubsection[{Animacja\+\_\+\+Obrotu\+\_\+\+Robota}]{\setlength{\rightskip}{0pt plus 5cm}void Robot\+::\+Animacja\+\_\+\+Obrotu\+\_\+\+Robota (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{Strm\+Wy, }
+\item[{double}]{a = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{class_robot_a902a2c6e7e53d75b686a019a455916d8}
+
+
+Funkcja wypisuje kolejne punkty posrednie do strumienia tworząc animację obrotu robota. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Strm\+Wy} & -\/ strumień do którego mają być wypisane wierzchołki \\
+\hline
+\mbox{\tt in}  & {\em Rob} & -\/ \hyperlink{class_robot}{Robot}, którego ścieżka będzie animowana \\
+\hline
+\mbox{\tt in}  & {\em Ind} & -\/ Numer punktu tymczasowego\\
+\hline
+\mbox{\tt in}  & {\em a} & -\/ kat przeskoku \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_robot_a4d5ca83fe9dee72eddd8c6df97a0e10d}{\index{Robot@{Robot}!Obroc\+O\+Kat@{Obroc\+O\+Kat}}
+\index{Obroc\+O\+Kat@{Obroc\+O\+Kat}!Robot@{Robot}}
+\subsubsection[{Obroc\+O\+Kat}]{\setlength{\rightskip}{0pt plus 5cm}void Robot\+::\+Obroc\+O\+Kat (
+\begin{DoxyParamCaption}
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)}}\label{class_robot_a4d5ca83fe9dee72eddd8c6df97a0e10d}
+
+
+Obraca prostakat o kat a. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & kąt o jaki obrócić prostokąt \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_robot_a6fd10be0da964daa94eb78bc7f02f879}{\index{Robot@{Robot}!Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu@{Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu}}
+\index{Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu@{Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu}!Robot@{Robot}}
+\subsubsection[{Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu}]{\setlength{\rightskip}{0pt plus 5cm}void Robot\+::\+Przygotuj\+\_\+\+Animacje\+\_\+\+Obrotu (
+\begin{DoxyParamCaption}
+\item[{double}]{a = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{class_robot_a6fd10be0da964daa94eb78bc7f02f879}
+
+
+Funkcja przygotowuje punkty pod animację 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & -\/ kat przeskoku \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_robot_a8e9a1014f600141e9a9514d6622b3394}{\index{Robot@{Robot}!Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}}
+\index{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}!Robot@{Robot}}
+\subsubsection[{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Robot\+::\+Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku}
+\end{DoxyParamCaption}
+)}}\label{class_robot_a8e9a1014f600141e9a9514d6622b3394}
+
+
+Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. 
+
+Funkcja jest niewielką modyfikacją funkcji \char`\"{}\+Przyklad\+Zapisu\+Wspolrzednych\+Do\+Pliku\char`\"{} z pliku main dostarczonego w folderze zalazek 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kstefanc/\+P\+O/\+Lab06/\+Lab/prj/inc/\hyperlink{_robot_8hh}{Robot.\+hh}\item 
+/home/kstefanc/\+P\+O/\+Lab06/\+Lab/prj/src/Robot.\+cpp\end{DoxyCompactItemize}

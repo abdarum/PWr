@@ -1,0 +1,10 @@
+ld: fatal: symbol 'TablicaSymboli' is multiply-defined:
+	(file obj/main.o type=OBJT; file obj/WyrazenieAlgeb.o type=OBJT);
+ld: fatal: symbol 'TabliczkaMnozenia' is multiply-defined:
+	(file obj/main.o type=OBJT; file obj/WyrazenieAlgeb.o type=OBJT);
+ld: fatal: symbol 'TabliczkaDodawania' is multiply-defined:
+	(file obj/main.o type=OBJT; file obj/WyrazenieAlgeb.o type=OBJT);
+ld: fatal: symbol 'bledy' is multiply-defined:
+	(file obj/main.o type=OBJT; file obj/WyrazenieAlgeb.o type=OBJT);
+ld: fatal: file processing errors. No output written to sprawdzenie_testu
+make: Fatal error: Command failed for target `sprawdzenie_testu'

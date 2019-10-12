@@ -1,0 +1,46 @@
+xclock -geometry +0-0 &
+xterm -geometry -0-0 &
+xcalc -geometry +0+0 &
+xedit -geometry -0+0 &
+twm
+
+# pod spodem druga część zadania
+
+Praca Kornela Stefańczyka
+nr 235420
+
+zadanie 3:
+
+echo Usuwanie wszystkich plików tymczasowych emacs
+rm *~    2> /dev/null
+rm \#*#  2> /dev/null
+
+polecenie find:
+
+polecenie służy do wyświetlania na standardowe wyjście takich plików które są zgodne z parametrami jakimi się wywołało find.
+
+składnia może wyglądać tak:
+find sciezka_dostepu flagi
+
+flagi:
+
+-name '*tekst*'  wyszukiwanie pliku w którego nazwie pojawia się element "tekst" - w tym poleceniu wielkość liter ma znaczenie
+
+-iname '*tekst*' polecenie analogiczne do powyższego ale nie uwzględnia wielkości liter
+
+! -name '*tekst*' wyświetla nazwy plików w których nie znajduje się "tekst"
+
+-user uzytkownik wyswietlanie plików nalezacych do użytkownika o nazwie "uzytkownik"
+
+-type litera
+podstawiając odpowiednia literę można wyszukac katalog bądz inny rodzaj pliku
+
+   b – blokowy (buforowany) plik specjalny
+   c – znakowy (niebuforowany) plik specjalny
+   d – katalog
+   p – łącze nazwane (FIFO)
+   f – zwykły plik
+   l – dowiązanie symboliczne
+   s – gniazdo
+
+

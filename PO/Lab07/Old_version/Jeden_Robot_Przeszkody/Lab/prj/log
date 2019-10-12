@@ -1,0 +1,991 @@
+src/Scena.cpp: In member function 'bool Scena::Animacja_Sciezki_FormatGnuplot(PzG::LaczeDoGNUPlota, const char*, Robot&, double, int)':
+src/Scena.cpp:87:61: error: no matching function for call to 'std::shared_ptr<Objekt_Graficzny>::shared_ptr(Robot&)'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+src/Scena.cpp:87:61: note: candidates are:
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:324:7: note: std::shared_ptr<_Tp>::shared_ptr(const std::weak_ptr<_Tp>&, std::nothrow_t) [with _Tp = Objekt_Graficzny]
+       shared_ptr(const weak_ptr<_Tp>& __r, std::nothrow_t)
+       ^
+/usr/include/c++/4.9/bits/shared_ptr.h:324:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.9/bits/shared_ptr.h:314:2: note: template<class _Alloc, class ... _Args> std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...)
+  shared_ptr(_Sp_make_shared_tag __tag, const _Alloc& __a,
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:314:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   cannot convert 'Robot_Animowany' (type 'Robot') to type 'std::_Sp_make_shared_tag'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:265:17: note: constexpr std::shared_ptr<_Tp>::shared_ptr(std::nullptr_t) [with _Tp = Objekt_Graficzny; std::nullptr_t = std::nullptr_t]
+       constexpr shared_ptr(nullptr_t __p) noexcept
+                 ^
+/usr/include/c++/4.9/bits/shared_ptr.h:265:17: note:   no known conversion for argument 1 from 'Robot' to 'std::nullptr_t'
+/usr/include/c++/4.9/bits/shared_ptr.h:257:2: note: template<class _Tp1, class _Del> std::shared_ptr<_Tp>::shared_ptr(std::unique_ptr<_Up, _Ep>&&)
+  shared_ptr(std::unique_ptr<_Tp1, _Del>&& __r)
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:257:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'std::unique_ptr<_Tp, _Dp>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:253:2: note: template<class _Tp1> std::shared_ptr<_Tp>::shared_ptr(std::auto_ptr<_Up>&&)
+  shared_ptr(std::auto_ptr<_Tp1>&& __r);
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:253:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'std::auto_ptr<_Up>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:248:11: note: template<class _Tp1> std::shared_ptr<_Tp>::shared_ptr(const std::weak_ptr<_Tp1>&)
+  explicit shared_ptr(const weak_ptr<_Tp1>& __r)
+           ^
+/usr/include/c++/4.9/bits/shared_ptr.h:248:11: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'const std::weak_ptr<_Tp>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:236:2: note: template<class _Tp1, class> std::shared_ptr<_Tp>::shared_ptr(std::shared_ptr<_Tp1>&&)
+  shared_ptr(shared_ptr<_Tp1>&& __r) noexcept
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:236:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'std::shared_ptr<_Tp1>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:226:7: note: std::shared_ptr<_Tp>::shared_ptr(std::shared_ptr<_Tp>&&) [with _Tp = Objekt_Graficzny]
+       shared_ptr(shared_ptr&& __r) noexcept
+       ^
+/usr/include/c++/4.9/bits/shared_ptr.h:226:7: note:   no known conversion for argument 1 from 'Robot' to 'std::shared_ptr<Objekt_Graficzny>&&'
+/usr/include/c++/4.9/bits/shared_ptr.h:218:2: note: template<class _Tp1, class> std::shared_ptr<_Tp>::shared_ptr(const std::shared_ptr<_Tp1>&)
+  shared_ptr(const shared_ptr<_Tp1>& __r) noexcept
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:218:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'const std::shared_ptr<_Tp1>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:206:2: note: template<class _Tp1> std::shared_ptr<_Tp>::shared_ptr(const std::shared_ptr<_Tp1>&, _Tp*)
+  shared_ptr(const shared_ptr<_Tp1>& __r, _Tp* __p) noexcept
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:206:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   'Robot' is not derived from 'const std::shared_ptr<_Tp1>'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:184:2: note: template<class _Deleter, class _Alloc> std::shared_ptr<_Tp>::shared_ptr(std::nullptr_t, _Deleter, _Alloc)
+  shared_ptr(nullptr_t __p, _Deleter __d, _Alloc __a)
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:184:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   cannot convert 'Robot_Animowany' (type 'Robot') to type 'std::nullptr_t'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:165:2: note: template<class _Tp1, class _Deleter, class _Alloc> std::shared_ptr<_Tp>::shared_ptr(_Tp1*, _Deleter, _Alloc)
+  shared_ptr(_Tp1* __p, _Deleter __d, _Alloc __a)
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:165:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   mismatched types '_Tp1*' and 'Robot'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:146:2: note: template<class _Deleter> std::shared_ptr<_Tp>::shared_ptr(std::nullptr_t, _Deleter)
+  shared_ptr(nullptr_t __p, _Deleter __d)
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:146:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   cannot convert 'Robot_Animowany' (type 'Robot') to type 'std::nullptr_t'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:129:2: note: template<class _Tp1, class _Deleter> std::shared_ptr<_Tp>::shared_ptr(_Tp1*, _Deleter)
+  shared_ptr(_Tp1* __p, _Deleter __d)
+  ^
+/usr/include/c++/4.9/bits/shared_ptr.h:129:2: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   mismatched types '_Tp1*' and 'Robot'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:112:11: note: template<class _Tp1> std::shared_ptr<_Tp>::shared_ptr(_Tp1*)
+  explicit shared_ptr(_Tp1* __p)
+           ^
+/usr/include/c++/4.9/bits/shared_ptr.h:112:11: note:   template argument deduction/substitution failed:
+src/Scena.cpp:87:61: note:   mismatched types '_Tp1*' and 'Robot'
+   std::shared_ptr<Objekt_Graficzny> Rob_ptr (Robot_Animowany);
+                                                             ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:103:7: note: std::shared_ptr<_Tp>::shared_ptr(const std::shared_ptr<_Tp>&) [with _Tp = Objekt_Graficzny]
+       shared_ptr(const shared_ptr&) noexcept = default;
+       ^
+/usr/include/c++/4.9/bits/shared_ptr.h:103:7: note:   no known conversion for argument 1 from 'Robot' to 'const std::shared_ptr<Objekt_Graficzny>&'
+/usr/include/c++/4.9/bits/shared_ptr.h:100:17: note: constexpr std::shared_ptr<_Tp>::shared_ptr() [with _Tp = Objekt_Graficzny]
+       constexpr shared_ptr() noexcept
+                 ^
+/usr/include/c++/4.9/bits/shared_ptr.h:100:17: note:   candidate expects 0 arguments, 1 provided
+src/Scena.cpp:88:12: error: no match for 'operator+' (operand types are 'std::shared_ptr<Objekt_Graficzny>' and 'int')
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+            ^
+src/Scena.cpp:88:12: note: candidates are:
+src/Scena.cpp:88:12: note: operator+(int, int) <built-in>
+src/Scena.cpp:88:12: note:   no known conversion for argument 1 from 'std::shared_ptr<Objekt_Graficzny>' to 'int'
+In file included from /usr/include/c++/4.9/vector:65:0,
+                 from inc/lacze_do_gnuplota.hh:5,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_bvector.h:387:3: note: std::_Bit_const_iterator std::operator+(std::ptrdiff_t, const std::_Bit_const_iterator&)
+   operator+(ptrdiff_t __n, const _Bit_const_iterator& __x)
+   ^
+/usr/include/c++/4.9/bits/stl_bvector.h:387:3: note:   no known conversion for argument 1 from 'std::shared_ptr<Objekt_Graficzny>' to 'std::ptrdiff_t {aka long int}'
+/usr/include/c++/4.9/bits/stl_bvector.h:297:3: note: std::_Bit_iterator std::operator+(std::ptrdiff_t, const std::_Bit_iterator&)
+   operator+(ptrdiff_t __n, const _Bit_iterator& __x)
+   ^
+/usr/include/c++/4.9/bits/stl_bvector.h:297:3: note:   no known conversion for argument 1 from 'std::shared_ptr<Objekt_Graficzny>' to 'std::ptrdiff_t {aka long int}'
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2491:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, _CharT)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2491:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2485:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2485:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2479:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(_CharT __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2479:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2473:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2473:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'const _CharT*' and 'std::shared_ptr<Objekt_Graficzny>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2461:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2461:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2455:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2455:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2449:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2449:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2437:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, _CharT)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2437:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2421:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2421:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:53:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.tcc:708:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(_CharT __lhs, const basic_string<_CharT, _Traits, _Alloc>& __rhs)
+     ^
+/usr/include/c++/4.9/bits/basic_string.tcc:708:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:53:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.tcc:692:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.tcc:692:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'const _CharT*' and 'std::shared_ptr<Objekt_Graficzny>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2384:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2384:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   'std::shared_ptr<Objekt_Graficzny>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:1135:5: note: template<class _Iterator> std::move_iterator<_Iterator> std::operator+(typename std::move_iterator<_Iterator>::difference_type, const std::move_iterator<_Iterator>&)
+     operator+(typename move_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:1135:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'const std::move_iterator<_Iterator>' and 'int'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:334:5: note: template<class _Iterator> std::reverse_iterator<_Iterator> std::operator+(typename std::reverse_iterator<_Iterator>::difference_type, const std::reverse_iterator<_Iterator>&)
+     operator+(typename reverse_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:334:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:88:13: note:   mismatched types 'const std::reverse_iterator<_Iterator>' and 'int'
+   *(Rob_ptr+1).Przygotuj_Animacje_Sciezki(Robot_Animowany,dlugosc);
+             ^
+src/Scena.cpp:90:10: error: 'Sciezka_Animowana' was not declared in this scope
+   while(!Sciezka_Animowana.Koniec_Animacji())
+          ^
+src/Scena.cpp:100:7: error: no match for 'operator!=' (operand types are 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' and 'Robot*')
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+       ^
+src/Scena.cpp:100:7: note: candidates are:
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:191:7: note: bool std::_List_iterator<_Tp>::operator!=(const _Self&) const [with _Tp = std::shared_ptr<Objekt_Graficzny>; std::_List_iterator<_Tp>::_Self = std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >]
+       operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.9/bits/stl_list.h:191:7: note:   no known conversion for argument 1 from 'Robot*' to 'const _Self& {aka const std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >&}'
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:360:5: note: template<class _Tp> bool std::operator!=(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator!=(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:360:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:355:5: note: template<class _Tp> bool std::operator!=(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator!=(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:355:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::shared_ptr<_Tp1>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:349:5: note: template<class _Tp1, class _Tp2> bool std::operator!=(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator!=(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:349:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::shared_ptr<_Tp1>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1209:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator!=(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1209:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1204:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator!=(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1204:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1198:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator!=(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1198:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:652:5: note: template<class _Tp, class _Dp> bool std::operator!=(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator!=(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:652:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:647:5: note: template<class _Tp, class _Dp> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator!=(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:647:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:641:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator!=(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:641:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:79:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/functional:2529:5: note: template<class _Res, class ... _Args> bool std::operator!=(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator!=(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/include/c++/4.9/functional:2529:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/memory:79:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/functional:2523:5: note: template<class _Res, class ... _Args> bool std::operator!=(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator!=(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/functional:2523:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/functional:55:0,
+                 from /usr/include/c++/4.9/memory:79,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/tuple:870:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator!=(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator!=(const tuple<_TElements...>& __t,
+     ^
+/usr/include/c++/4.9/tuple:870:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::tuple<_Elements ...>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/tuple:39:0,
+                 from /usr/include/c++/4.9/functional:55,
+                 from /usr/include/c++/4.9/memory:79,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/array:237:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator!=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator!=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/include/c++/4.9/array:237:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::array<_Tp, _Nm>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/4.9/bits/basic_ios.h:37,
+                 from /usr/include/c++/4.9/ios:44,
+                 from /usr/include/c++/4.9/ostream:38,
+                 from /usr/include/c++/4.9/iostream:39,
+                 from inc/Wektor2D.hh:4,
+                 from inc/Macierz2x2.hh:4,
+                 from inc/Robot.hh:4,
+                 from inc/Scena.hh:5,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/streambuf_iterator.h:210:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/include/c++/4.9/bits/streambuf_iterator.h:210:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/vector:64:0,
+                 from inc/lacze_do_gnuplota.hh:5,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_vector.h:1535:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_vector.h:1535:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::vector<_Tp, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:1765:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::list<_Tp, _Alloc>&, const std::list<_Tp, _Alloc>&)
+     operator!=(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_list.h:1765:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::list<_Tp, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:291:5: note: template<class _Val> bool std::operator!=(const std::_List_iterator<_Tp>&, const std::_List_const_iterator<_Val>&)
+     operator!=(const _List_iterator<_Val>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_list.h:291:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   mismatched types 'const std::_List_const_iterator<_Val>' and 'Robot*'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2575:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2575:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2563:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2563:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   mismatched types 'const _CharT*' and 'std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2551:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2551:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/string:41:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/allocator.h:143:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/4.9/bits/allocator.h:143:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::allocator<_CharT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/string:41:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/allocator.h:138:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/4.9/bits/allocator.h:138:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::allocator<_CharT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/char_traits.h:40:0,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/postypes.h:221:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/4.9/bits/postypes.h:221:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::fpos<_StateT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:1066:5: note: template<class _Iterator> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator!=(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:1066:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::move_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:1060:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator!=(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:1060:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::move_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:354:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator!=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:354:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:304:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator!=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:304:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_pair.h:227:5: note: template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_pair.h:227:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:10: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::pair<_T1, _T2>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+          ^
+src/Scena.cpp:100:31: error: no match for 'operator!=' (operand types are 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' and 'Robot*')
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                               ^
+src/Scena.cpp:100:31: note: candidates are:
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:191:7: note: bool std::_List_iterator<_Tp>::operator!=(const _Self&) const [with _Tp = std::shared_ptr<Objekt_Graficzny>; std::_List_iterator<_Tp>::_Self = std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >]
+       operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.9/bits/stl_list.h:191:7: note:   no known conversion for argument 1 from 'Robot*' to 'const _Self& {aka const std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >&}'
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:360:5: note: template<class _Tp> bool std::operator!=(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator!=(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:360:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:355:5: note: template<class _Tp> bool std::operator!=(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator!=(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:355:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::shared_ptr<_Tp1>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:82:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr.h:349:5: note: template<class _Tp1, class _Tp2> bool std::operator!=(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator!=(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/include/c++/4.9/bits/shared_ptr.h:349:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::shared_ptr<_Tp1>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1209:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator!=(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1209:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1204:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator!=(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1204:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.9/memory:82,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1198:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator!=(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator!=(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/include/c++/4.9/bits/shared_ptr_base.h:1198:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:652:5: note: template<class _Tp, class _Dp> bool std::operator!=(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator!=(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:652:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:647:5: note: template<class _Tp, class _Dp> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator!=(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:647:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:81:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/unique_ptr.h:641:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator!=(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/include/c++/4.9/bits/unique_ptr.h:641:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:79:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/functional:2529:5: note: template<class _Res, class ... _Args> bool std::operator!=(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator!=(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/include/c++/4.9/functional:2529:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   cannot convert 'it' (type 'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}') to type 'std::nullptr_t'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/memory:79:0,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/functional:2523:5: note: template<class _Res, class ... _Args> bool std::operator!=(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator!=(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.9/functional:2523:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/functional:55:0,
+                 from /usr/include/c++/4.9/memory:79,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/tuple:870:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator!=(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator!=(const tuple<_TElements...>& __t,
+     ^
+/usr/include/c++/4.9/tuple:870:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::tuple<_Elements ...>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/tuple:39:0,
+                 from /usr/include/c++/4.9/functional:55,
+                 from /usr/include/c++/4.9/memory:79,
+                 from inc/Scena.hh:15,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/array:237:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator!=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator!=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/include/c++/4.9/array:237:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::array<_Tp, _Nm>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/4.9/bits/basic_ios.h:37,
+                 from /usr/include/c++/4.9/ios:44,
+                 from /usr/include/c++/4.9/ostream:38,
+                 from /usr/include/c++/4.9/iostream:39,
+                 from inc/Wektor2D.hh:4,
+                 from inc/Macierz2x2.hh:4,
+                 from inc/Robot.hh:4,
+                 from inc/Scena.hh:5,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/streambuf_iterator.h:210:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/include/c++/4.9/bits/streambuf_iterator.h:210:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/vector:64:0,
+                 from inc/lacze_do_gnuplota.hh:5,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_vector.h:1535:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_vector.h:1535:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::vector<_Tp, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:1765:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::list<_Tp, _Alloc>&, const std::list<_Tp, _Alloc>&)
+     operator!=(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_list.h:1765:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::list<_Tp, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/list:63:0,
+                 from inc/lacze_do_gnuplota.hh:4,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_list.h:291:5: note: template<class _Val> bool std::operator!=(const std::_List_iterator<_Tp>&, const std::_List_const_iterator<_Val>&)
+     operator!=(const _List_iterator<_Val>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_list.h:291:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   mismatched types 'const std::_List_const_iterator<_Val>' and 'Robot*'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2575:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2575:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2563:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2563:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   mismatched types 'const _CharT*' and 'std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/string:52:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/basic_string.h:2551:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.9/bits/basic_string.h:2551:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/string:41:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/allocator.h:143:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/4.9/bits/allocator.h:143:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::allocator<_CharT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/string:41:0,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/allocator.h:138:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/4.9/bits/allocator.h:138:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::allocator<_CharT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/char_traits.h:40:0,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/postypes.h:221:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/4.9/bits/postypes.h:221:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::fpos<_StateT>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:1066:5: note: template<class _Iterator> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator!=(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:1066:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::move_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:1060:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator!=(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:1060:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::move_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:354:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator!=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:354:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_iterator.h:304:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator!=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.9/bits/stl_iterator.h:304:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+In file included from /usr/include/c++/4.9/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.9/bits/char_traits.h:39,
+                 from /usr/include/c++/4.9/string:40,
+                 from inc/lacze_do_gnuplota.hh:3,
+                 from inc/Scena.hh:4,
+                 from src/Scena.cpp:1:
+/usr/include/c++/4.9/bits/stl_pair.h:227:5: note: template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.9/bits/stl_pair.h:227:5: note:   template argument deduction/substitution failed:
+src/Scena.cpp:100:52: note:   'std::list<std::shared_ptr<Objekt_Graficzny> >::iterator {aka std::_List_iterator<std::shared_ptr<Objekt_Graficzny> >}' is not derived from 'const std::pair<_T1, _T2>'
+  if(it!=&Robot_Animowany || it!=(&Robot_Animowany+1))
+                                                    ^
+src/Scena.cpp:133:24: error: no match for 'operator+' (operand types are 'Robot' and 'int')
+       *(Robot_Animowany+1).Animacja_Sciezki_Z_Robotem(StrmPlikowy,Robot_Animowany);
+                        ^
+make: *** [obj/Scena.o] B³±d 1

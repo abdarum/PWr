@@ -1,0 +1,323 @@
+#ifndef SCENA_HH
+#define SCENA_HH
+
+#include "lacze_do_gnuplota.hh"
+#include "Robot.hh"
+#include "Przeszkoda.hh"
+#include "Objekt_Graficzny.hh"
+#include "ZbiorWierzcholkow.hh"
+#include "Fabryka.hh"
+#include "Sciezka.hh"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <vector>
+#include <list>
+#include <memory>
+#include <iterator>
+
+/*!
+ * \file
+ * \brief Definicja klasy Scena
+ *
+ * Plik zawiera kalse Scena
+ */
+
+
+
+/*!
+ *\brief Modeluje informacje dotyczace Sceny
+ *
+ * Modeluje zestaw informacji dotyczacych wszystkich objektów występujących na
+ *  scenie.
+ * Udostępnia także metody umozliwiające aktualizowanie wartosci 
+ * a także zwracanie ich.
+ */
+class Scena
+{
+void Ustaw_Objekty(){
+  
+  Dodaj_Przeszkode(std::vector<double>{20,90,70,90,70,150,20,150});
+  Dodaj_Przeszkode(std::vector<double>{200,150,250,150,250,100,200,100});
+  Dodaj_Przeszkode(std::vector<double>{150,40,250,40,250,20,150,20});
+  Dodaj_Robota(Wektor2D(25,25),0); 
+  Dodaj_Robota(Wektor2D(125,75),225); 
+  Dodaj_Robota(Wektor2D(150,150),45); 
+  Wybierz_Robota(1);  
+};
+public:
+  Fabryka Fab;
+  std::shared_ptr<Objekt_Graficzny> Obecny_Robot;
+  std::shared_ptr<Objekt_Graficzny> Obecna_Sciezka;
+  std::list<std::shared_ptr<Objekt_Graficzny>> Ob_List;
+  //  std::vector<Robot> Rob;
+  //  std::vector<Sciezka> Sciez;
+  
+  std::vector<Przeszkoda> Przeszk;
+  /*!
+   * \brief Funkcja odpowiada obliczenie punktu docelowego ruchu
+   */
+  Scena(): Fab() {Ustaw_Objekty();}
+  /*!
+   * \brief Funkcja odpowiada obliczenie punktu docelowego ruchu
+   */
+  Scena(PzG::LaczeDoGNUPlota &Lacze);
+  /*!
+   * \brief Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem 
+   *
+   * \param[in] sNazwaPliku - Nazwa pliku do którego mają być  wypisane 
+   *                          wierzchołki
+   */
+  bool ZapisWspolrzednychDoPlikuFormatGnuplot(const char  *sNazwaPliku);
+  /*!
+   * \brief Animacja ścieżki wyświetlanej Gnuplotem 
+   *   
+   * \param[in] sNazwaPliku - Nazwa pliku do którego mają być  wypisane 
+   *                          wierzchołki
+   * \param[in] Robot_Animowany - Robot, który ma być animowany wraz ze ścieżką
+   * \param[in] microseconds - długość trwania klatki w animacji
+   * \param[in] dlugosc - długość kroku animacji
+   */
+  bool Animacja_Sciezki_FormatGnuplot(PzG::LaczeDoGNUPlota  Lacze,const char *sNazwaPliku,Sciezka &Sciezka_Animowana,Robot &Robot_Animowany,double dlugosc=0.25,int microseconds=40000);
+  /*!
+   * \brief Animacja ścieżki wyświetlanej Gnuplotem 
+   *   
+   * \param[in] sNazwaPliku - Nazwa pliku do którego mają być  wypisane 
+   *                          wierzchołki
+   * \param[in] microseconds - długość trwania klatki w animacji
+   * \param[in] dlugosc - długość kroku animacji
+   */
+  bool Animacja_Sciezki_FormatGnuplot(PzG::LaczeDoGNUPlota  Lacze,const char *sNazwaPliku,double dlugosc=0.25,int microseconds=40000);
+  /*!
+   * \brief Animacja obrotu robota wyświetlana Gnuplotem 
+   *   
+   * \param[in] sNazwaPliku - Nazwa pliku do którego mają być  wypisane 
+   *                          wierzchołki
+   * \param[in] microseconds - długość trwania klatki w animacji
+   * \param[in] a - kąt kroku animacji
+   */
+  bool Animacja_Obrotu_FormatGnuplot(PzG::LaczeDoGNUPlota Lacze,const char *sNazwaPliku,int microseconds=40000,double a=1);
+  /*!
+   * \brief Animacja obrotu robota wyświetlana Gnuplotem 
+   *   
+   * \param[in] sNazwaPliku - Nazwa pliku do którego mają być  wypisane 
+   *                          wierzchołki
+   * \param[in] Robot_Animowany - Robot, który ma być animowany wraz ze ścieżką
+   * \param[in] microseconds - długość trwania klatki w animacji
+   * \param[in] a - kąt kroku animacji
+   */
+  bool Animacja_Obrotu_FormatGnuplot(PzG::LaczeDoGNUPlota Lacze,const char *sNazwaPliku,Sciezka &Sciezka_Animowana,Robot &Robot_Animowany,int microseconds=40000,double a=1);
+  /*!
+   * \brief Dodaje Robota wraz ze ścieżką. 
+   *   
+   * \param[in] Wsp_Globalne - Współrzędne robota względem obecnej sceny
+   * \param[in] Kat_Obrotu   - Kąt o jaki ma być obrócony Robot względem sceny
+   */
+  void Dodaj_Robota(Wektor2D Wsp_Globalne, double Kat_Obrotu);
+  /*!
+   * \brief Zmienia Robota, którym się posługujemy. 
+   *   
+   * \param[in] Indeks_Robota - Id robota którego parametry obecnie modyfikujemy
+   */
+  void Wybierz_Robota(unsigned int Indeks_Robota){
+    bool znaleziony_robot=false;
+    for(const std::shared_ptr<Objekt_Graficzny> &wsk : Ob_List )
+      {   
+	if((wsk->Rodzaj_Obiektu()) == Ob_Robot)
+	  {
+	    if(Indeks_Robota == wsk->ID_Robota())
+	      {
+		Obecny_Robot=wsk;
+		znaleziony_robot=true;
+	      }
+	  }
+	else if(znaleziony_robot==true)
+	  {
+	    Obecna_Sciezka=wsk;
+	    znaleziony_robot=false;
+	    //  Obecna_Sciezka->WyswietlWspolrzedneFormatGnuplot(std::cout);
+	  }
+      }
+  }
+  /*!
+   * \brief Zmienia Robota, którym się posługujemy. 
+   *   
+   * \param[in] Indeks_Robota - Id robota którego parametry obecnie modyfikujemy
+   */
+  void Wybierz_Robota_Menu(){
+    unsigned int wybrany_robot(0);
+    
+    std::shared_ptr<Robot> Dodany_Robot_tmp;
+    std::shared_ptr<Robot> Dodany_Robot;
+    Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+    
+    /*
+    std::cout<<"!!! Test funkcji Wybierz_Robota_Menu() w Scena.hh"<<std::endl;
+    std::cout<<"Liczba robotów: "<<Ile_Robotow()<<std::endl;
+    for(std::list<std::shared_ptr<Objekt_Graficzny>>::iterator it=Ob_List.begin(); it != Ob_List.end(); ++it)       
+      if((*it)->Rodzaj_Obiektu() == Ob_Robot)
+	{
+	  std::shared_ptr<Robot> TMP_PTR;
+	  TMP_PTR=std::dynamic_pointer_cast<Robot>(*it); 
+	  std::cout<<"Robot "<<(*TMP_PTR).ID_Robota()<<std::endl;
+	  std::cout<<"Wektor translacji: "<<(*TMP_PTR).Wektor_Translacji()<<std::endl;
+	  //	  (*TMP_PTR).WyswietlWspolrzedneFormatGnuplot(std::cout);
+	  std::cout<<std::endl;
+	}
+    */
+
+
+    std::cout<<"Aktualnie wyselekcjonowanym robotem jest:"<<std::endl<<std::endl;
+    std::cout<<"  Robot "<<(*Dodany_Robot).ID_Robota()<<". Wspolrzedne: (";
+    std::cout<<Zwroc_Obecnego_Robota().Wektor_Translacji();
+    std::cout<<")"<<std::endl<<std::endl<<std::endl<<"\t0 - zaniechaj zmiany selekcji";
+    std::cout<<std::endl<<std::endl;
+
+
+    for(const std::shared_ptr<Objekt_Graficzny> &wsk : Ob_List )
+      if((wsk->Rodzaj_Obiektu()) == Ob_Robot)
+	{
+	  Dodany_Robot_tmp=std::dynamic_pointer_cast<Robot>(wsk); 
+
+	  std::cout<<"  Robot "<<(*Dodany_Robot_tmp).ID_Robota()<<". Wspolrzedne: (";
+	  std::cout<<(*Dodany_Robot_tmp).Wektor_Translacji();
+	  std::cout<<")"<<std::endl;
+	}
+    
+    std::cout<<std::endl<<"Podaj numer robota, dla ktorego maja byc wykonane operacje sterowania"<<std::endl<<std::endl<<"Wprowadz numer robota lub 0 > ";
+    std::cin>>wybrany_robot;
+    if(!std::cin || (wybrany_robot>Ile_Robotow()))
+      {
+	std::cout<<"Wybrano niepoprawna opcje."<<std::endl<<"Podany zostal indeks nieistniejacego robota lub znak"<<std::endl;
+      }
+    else
+      {
+	if(wybrany_robot!=0) ;
+	Wybierz_Robota(wybrany_robot);
+	Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+	std::cout<<std::endl<<"  Robot "<<(*Dodany_Robot).ID_Robota()<<"."<<" Wspolrzedne: (";
+	std::cout<<Zwroc_Obecnego_Robota().Wektor_Translacji();
+	std::cout<<")"<<std::endl;
+      }
+  }
+
+  /*!
+   * \brief Dodaje Przeszkodę. 
+   *   
+   * \param[in] Wspolrzedne_Wierzcholkow - Wspolrzedne wierzcholkow Przeszkody
+   * kolejno X1, Y1, X2, Y2 ...
+   */
+  void Dodaj_Przeszkode(std::vector<double> Wspolrzedne_Wierzcholkow);
+  /*!
+   * \brief Wyswietla typt wszystkich dodanych objektów. 
+   */
+  void Wyswietl_Typy_Objektow();
+  /*!
+   * \brief Wyswietla współrzędne wszystkich dodanych objektów. 
+   */
+  void Wyswietl_Wspolrzedne_Objektow();
+  /*!
+   * \brief Zwraca liczbę Robotów w scenie. 
+   */
+  unsigned int Ile_Robotow(){
+    int Ile(0);
+    for(const std::shared_ptr<Objekt_Graficzny> &wsk : Ob_List )
+      if((wsk->Rodzaj_Obiektu()) == Ob_Robot) Ile++;
+    return Ile;
+  }
+  /*!
+   * \brief Zwraca liczbę Przeszkód w scenie. 
+   */
+    unsigned int Ile_Przeszkod(){int Ile(0);for(const std::shared_ptr<Objekt_Graficzny> &wsk : Ob_List )if((wsk->Rodzaj_Obiektu()) == Ob_Przeszkoda) Ile++; return Ile;  }
+  /*!
+   * \brief Zwraca liczbę Robotów w scenie. 
+   */
+  unsigned int Ile_Sciezek(){
+    int Ile(0);
+    for(const std::shared_ptr<Objekt_Graficzny> &wsk : Ob_List )
+      if((wsk->Rodzaj_Obiektu()) == Ob_Sciezka) Ile++;
+    return Ile;
+  }
+  /*!
+   * \brief Okręgi się przecinają.
+   *
+   * \retval true - Okręgi się przecinają 
+   * \retval false - Okręgi się nie przecinają 
+   */
+  bool Okregi_sie_przecinaja(Robot &R1,Robot &R2) const;
+  /*!
+   * \brief Punk zawiera się w prostokącie.
+   *
+   * \retval true - Punkt zawiera się w prostokącie 
+   * \retval false - Punkt nie zawiera się w prostokącie
+   */
+  bool Punkt_Nalezy_Do_Prostokata(Robot &R1,Przeszkoda &Pr) const;
+  /*!
+   * \brief Okręgi się przecinają.
+   *
+   * \retval true - Okręgi się przecinają 
+   * \retval false - Okręgi się nie przecinają 
+   */
+  bool Kolizja(Robot &R1,const std::shared_ptr<Objekt_Graficzny>& _wsk) const;
+ /*!
+   * \brief Funkcja odpowiada obliczenie punktu docelowego ruchu obecnie wybranego robota
+   *
+   * \param[in] dlugosc - długość jaką ma jechac robot
+   */
+  void Jedz_Prosto(double dlugosc){
+    std::cout<<"Test funkcji Jedz prosto(int) "<<std::endl;
+    std::shared_ptr<Robot> Dodany_Robot;
+    std::shared_ptr<Sciezka> Dodana_Sciezka;
+    
+    std::cout<<"inicjalizacja zmiennych "<<std::endl;
+    Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+    std::cout<<"po przypisaniu robota "<<std::endl;
+    Dodana_Sciezka=std::dynamic_pointer_cast<Sciezka>(Obecna_Sciezka);   
+    std::cout<<"po przypisaniu sciezki "<<std::endl;
+   (*Dodana_Sciezka).Jedz_Prosto(*Dodany_Robot,dlugosc);
+    std::cout<<"po operacjach "<<std::endl;
+ 
+
+    /*
+    std::shared_ptr<Robot> Dodany_Robot;
+    std::shared_ptr<Sciezka> Dodana_Sciezka;
+    
+    Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+    Dodana_Sciezka=std::dynamic_pointer_cast<Sciezka>(Obecna_Sciezka);   
+    (*Dodana_Sciezka).Jedz_Prosto(*Dodany_Robot,dlugosc);
+    */
+  }
+  /*!
+   * \brief Obraca prostakat o kat a
+   *
+   * \param[in] a kąt o jaki obrócić prostokąt
+   */
+  void ObrocOKat(double a){
+    std::shared_ptr<Robot> Dodany_Robot;
+    Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+    (*Dodany_Robot).ObrocOKat(a);}
+  /*!
+   * \brief Dodaje Przeszkodę. 
+   *   
+   * \param[in] Wspolrzedne_Wierzcholkow - Wspolrzedne wierzcholkow Przeszkody
+   * kolejno X1, Y1, X2, Y2 ...
+   */
+  Robot& Zwroc_Obecnego_Robota(){
+    std::shared_ptr<Robot> Dodany_Robot;
+    Dodany_Robot=std::dynamic_pointer_cast<Robot>(Obecny_Robot);   
+    return *Dodany_Robot; }
+
+
+
+
+};
+
+/*!
+ * \brief Wyswietla współrzędne wierzchołków ścieżki
+ */
+//std::ostream& operator << (std::ostream &Strm, const Sciezka  &Sciez);
+
+#endif
+
+

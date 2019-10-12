@@ -1,0 +1,186 @@
+\hypertarget{class_zbior_wierzcholkow}{\section{Zbior\+Wierzcholkow Class Reference}
+\label{class_zbior_wierzcholkow}\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+}
+
+
+Modeluje informacje dotyczace zbioru wierzchołkow.  
+
+
+
+
+{\ttfamily \#include $<$Zbior\+Wierzcholkow.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_zbior_wierzcholkow_a702b749ebeb0ca56e2aa289164e2375a}{\hyperlink{class_zbior_wierzcholkow_a702b749ebeb0ca56e2aa289164e2375a}{Zbior\+Wierzcholkow} ()}\label{class_zbior_wierzcholkow_a702b749ebeb0ca56e2aa289164e2375a}
+
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_zbior_wierzcholkow}{Zbior\+Wierzcholkow}. \end{DoxyCompactList}\item 
+\hyperlink{class_zbior_wierzcholkow_a68d1a1df685ea2cecc3e3e844e453e3b}{Zbior\+Wierzcholkow} (std\+::vector$<$ double $>$ Wspolrzedne\+\_\+\+Wierzcholkow)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_zbior_wierzcholkow}{Zbior\+Wierzcholkow} wartosciami. \end{DoxyCompactList}\item 
+\hyperlink{class_zbior_wierzcholkow_a4915a3abcfb117bad7ffccc5e00beb24}{Zbior\+Wierzcholkow} (std\+::vector$<$ \hyperlink{class_wektor2_d}{Wektor2\+D} $>$ Wierzcholki)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_zbior_wierzcholkow}{Zbior\+Wierzcholkow} wartosciami. \end{DoxyCompactList}\item 
+void \hyperlink{class_zbior_wierzcholkow_a0c6ac1323cbdf64c8efb1ce057da6140}{Ustaw} (std\+::vector$<$ double $>$ Wspolrzedne\+\_\+\+Wierzcholkow)
+\begin{DoxyCompactList}\small\item\em Dodaje kolejne wierzchołki. \end{DoxyCompactList}\item 
+void \hyperlink{class_zbior_wierzcholkow_a991bb11400e9ac0d81ff86663bf2c4dc}{Ustaw} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wierzcholek)
+\begin{DoxyCompactList}\small\item\em Dodaje kolejne wierzchołki. \end{DoxyCompactList}\item 
+void \hyperlink{class_zbior_wierzcholkow_a5b35dc69efe515e788a162716b9d584e}{Ustaw} (std\+::vector$<$ \hyperlink{class_wektor2_d}{Wektor2\+D} $>$ Wierzcholki)
+\begin{DoxyCompactList}\small\item\em Dodaje kolejne wierzchołki. \end{DoxyCompactList}\item 
+int \hyperlink{class_zbior_wierzcholkow_a3a5b18af77d0db0b630e865417651920}{Rozmiar} () const 
+\begin{DoxyCompactList}\small\item\em Zwraca liczbę istniejących wierzchołków. \end{DoxyCompactList}\item 
+\hypertarget{class_zbior_wierzcholkow_a216b7dc6fc04e20782ff5ee421aff394}{\hyperlink{class_wektor2_d}{Wektor2\+D} \hyperlink{class_zbior_wierzcholkow_a216b7dc6fc04e20782ff5ee421aff394}{operator\mbox{[}$\,$\mbox{]}} (int Ind) const }\label{class_zbior_wierzcholkow_a216b7dc6fc04e20782ff5ee421aff394}
+
+\begin{DoxyCompactList}\small\item\em Przeciarzenie operatra indeksowania do zwracania wartosci. \end{DoxyCompactList}\item 
+\hypertarget{class_zbior_wierzcholkow_a1c9f3256632426050a16d0bf42460851}{\hyperlink{class_wektor2_d}{Wektor2\+D} \& \hyperlink{class_zbior_wierzcholkow_a1c9f3256632426050a16d0bf42460851}{operator\mbox{[}$\,$\mbox{]}} (int Ind)}\label{class_zbior_wierzcholkow_a1c9f3256632426050a16d0bf42460851}
+
+\begin{DoxyCompactList}\small\item\em Przeciarzenie operatra indeksowania do przypisania wartosci. \end{DoxyCompactList}\item 
+void \hyperlink{class_zbior_wierzcholkow_a3b8c2d3bd48a46074dcb6666b0c58370}{Usun\+\_\+\+Elementy} (int Liczba\+\_\+elementow)
+\begin{DoxyCompactList}\small\item\em Usuwa wybraną ilość elementów od końca. \end{DoxyCompactList}\item 
+\hypertarget{class_zbior_wierzcholkow_a81a031e1bfaf4d85d5526546f529e1e0}{void \hyperlink{class_zbior_wierzcholkow_a81a031e1bfaf4d85d5526546f529e1e0}{Usun\+\_\+\+Elementy} ()}\label{class_zbior_wierzcholkow_a81a031e1bfaf4d85d5526546f529e1e0}
+
+\begin{DoxyCompactList}\small\item\em Usuwa wszystkie elementy. \end{DoxyCompactList}\item 
+\hypertarget{class_zbior_wierzcholkow_a933a445a6773468ce7be082dae36e52b}{\hyperlink{class_wektor2_d}{Wektor2\+D} \hyperlink{class_zbior_wierzcholkow_a933a445a6773468ce7be082dae36e52b}{Wartosc} (int Ind) const }\label{class_zbior_wierzcholkow_a933a445a6773468ce7be082dae36e52b}
+
+\begin{DoxyCompactList}\small\item\em Zwraca współrzędne wierzchołka Ind. \end{DoxyCompactList}\item 
+bool \hyperlink{class_zbior_wierzcholkow_af56f72995e3ad976f411d27c3a96345a}{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot} (const char $\ast$s\+Nazwa\+Pliku) const 
+\begin{DoxyCompactList}\small\item\em Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. \end{DoxyCompactList}\item 
+\hypertarget{class_zbior_wierzcholkow_a670d9bc6060a08274e363d3f3bfc1d4f}{void \hyperlink{class_zbior_wierzcholkow_a670d9bc6060a08274e363d3f3bfc1d4f}{Wyswietl\+Wspolrzedne\+Format\+Gnuplot} (std\+::ostream \&Strm\+Wy) const }\label{class_zbior_wierzcholkow_a670d9bc6060a08274e363d3f3bfc1d4f}
+
+\begin{DoxyCompactList}\small\item\em Funkcja wypisuje do strumienia punkty w odpowiednim formacie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Modeluje informacje dotyczace zbioru wierzchołkow. 
+
+Modeluje zestaw informacji dotyczacych zbioru wierzchołków. Udostępnia także metody umozliwiające aktualizowanie wartosci a także zwracanie ich. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_zbior_wierzcholkow_a68d1a1df685ea2cecc3e3e844e453e3b}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Zbior\+Wierzcholkow}]{\setlength{\rightskip}{0pt plus 5cm}Zbior\+Wierzcholkow\+::\+Zbior\+Wierzcholkow (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{Wspolrzedne\+\_\+\+Wierzcholkow}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a68d1a1df685ea2cecc3e3e844e453e3b}
+
+
+Inicjalizacja zmiennej typu \hyperlink{class_zbior_wierzcholkow}{Zbior\+Wierzcholkow} wartosciami. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wspolrzedne\+\_\+\+Wierzcholkow} & ustawia parametry wspolrzednych wierzcholkow. Należy podać je w kolejności\+: Wsp\+X\+\_\+\+Wierzch1 Wsp\+Y\+\_\+\+Wierzch1 Wsp\+X\+\_\+\+Wierzch2 ... \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_zbior_wierzcholkow_a4915a3abcfb117bad7ffccc5e00beb24}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Zbior\+Wierzcholkow}]{\setlength{\rightskip}{0pt plus 5cm}Zbior\+Wierzcholkow\+::\+Zbior\+Wierzcholkow (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Wektor2\+D} $>$}]{Wierzcholki}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a4915a3abcfb117bad7ffccc5e00beb24}
+
+
+Inicjalizacja zmiennej typu \hyperlink{class_zbior_wierzcholkow}{Zbior\+Wierzcholkow} wartosciami. 
+
+Każdy wierzchołek jest oreślony jako wektor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wierzcholki} & ustawia parametry wspolrzednych wierzcholkow. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_zbior_wierzcholkow_a3a5b18af77d0db0b630e865417651920}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Rozmiar@{Rozmiar}}
+\index{Rozmiar@{Rozmiar}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Rozmiar}]{\setlength{\rightskip}{0pt plus 5cm}int Zbior\+Wierzcholkow\+::\+Rozmiar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a3a5b18af77d0db0b630e865417651920}
+
+
+Zwraca liczbę istniejących wierzchołków. 
+
+/brief Znajdz długości przeciwległych bokow \hypertarget{class_zbior_wierzcholkow_a0c6ac1323cbdf64c8efb1ce057da6140}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Ustaw@{Ustaw}}
+\index{Ustaw@{Ustaw}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Ustaw}]{\setlength{\rightskip}{0pt plus 5cm}void Zbior\+Wierzcholkow\+::\+Ustaw (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{Wspolrzedne\+\_\+\+Wierzcholkow}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a0c6ac1323cbdf64c8efb1ce057da6140}
+
+
+Dodaje kolejne wierzchołki. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wspolrzedne\+\_\+\+Wierzcholkow} & ustawia parametry wspolrzednych wierzcholkow. Należy podać je w kolejności\+: Wsp\+X\+\_\+\+Wierzch1 Wsp\+Y\+\_\+\+Wierzch1 Wsp\+X\+\_\+\+Wierzch2 ... \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_zbior_wierzcholkow_a991bb11400e9ac0d81ff86663bf2c4dc}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Ustaw@{Ustaw}}
+\index{Ustaw@{Ustaw}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Ustaw}]{\setlength{\rightskip}{0pt plus 5cm}void Zbior\+Wierzcholkow\+::\+Ustaw (
+\begin{DoxyParamCaption}
+\item[{{\bf Wektor2\+D}}]{Wierzcholek}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a991bb11400e9ac0d81ff86663bf2c4dc}
+
+
+Dodaje kolejne wierzchołki. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wierzcholek} & Wierzchołek, który ma być dodany na koniec powinien być typu \hyperlink{class_wektor2_d}{Wektor2\+D} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_zbior_wierzcholkow_a5b35dc69efe515e788a162716b9d584e}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Ustaw@{Ustaw}}
+\index{Ustaw@{Ustaw}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Ustaw}]{\setlength{\rightskip}{0pt plus 5cm}void Zbior\+Wierzcholkow\+::\+Ustaw (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Wektor2\+D} $>$}]{Wierzcholki}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a5b35dc69efe515e788a162716b9d584e}
+
+
+Dodaje kolejne wierzchołki. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wierzcholki} & Wierzchołki, które mają być kolejno dodane powinny być typu \hyperlink{class_wektor2_d}{Wektor2\+D} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_zbior_wierzcholkow_a3b8c2d3bd48a46074dcb6666b0c58370}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Usun\+\_\+\+Elementy@{Usun\+\_\+\+Elementy}}
+\index{Usun\+\_\+\+Elementy@{Usun\+\_\+\+Elementy}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Usun\+\_\+\+Elementy}]{\setlength{\rightskip}{0pt plus 5cm}void Zbior\+Wierzcholkow\+::\+Usun\+\_\+\+Elementy (
+\begin{DoxyParamCaption}
+\item[{int}]{Liczba\+\_\+elementow}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_zbior_wierzcholkow_a3b8c2d3bd48a46074dcb6666b0c58370}
+
+
+Usuwa wybraną ilość elementów od końca. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Liczba\+\_\+elementow} & Ile ostatnich elementów usunąć \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_zbior_wierzcholkow_af56f72995e3ad976f411d27c3a96345a}{\index{Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}!Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}}
+\index{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}!Zbior\+Wierzcholkow@{Zbior\+Wierzcholkow}}
+\subsubsection[{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Zbior\+Wierzcholkow\+::\+Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku}
+\end{DoxyParamCaption}
+) const}}\label{class_zbior_wierzcholkow_af56f72995e3ad976f411d27c3a96345a}
+
+
+Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. 
+
+Funkcja jest niewielką modyfikacją funkcji \char`\"{}\+Przyklad\+Zapisu\+Wspolrzednych\+Do\+Pliku\char`\"{} z pliku main dostarczonego w folderze zalazek 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kstefanc/\+P\+O/\+Lab06/\+Lab/prj/inc/\hyperlink{_zbior_wierzcholkow_8hh}{Zbior\+Wierzcholkow.\+hh}\item 
+/home/kstefanc/\+P\+O/\+Lab06/\+Lab/prj/src/Zbior\+Wierzcholkow.\+cpp\end{DoxyCompactItemize}

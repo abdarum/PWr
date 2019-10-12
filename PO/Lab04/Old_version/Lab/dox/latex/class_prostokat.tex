@@ -1,0 +1,204 @@
+\hypertarget{class_prostokat}{\section{Prostokat Class Reference}
+\label{class_prostokat}\index{Prostokat@{Prostokat}}
+}
+
+
+Modeluje informacje dotyczace polozenia prostokata.  
+
+
+
+
+{\ttfamily \#include $<$Prostokat.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_prostokat_acc97afb4da6106f85d2b36c0b4ba7e26}{\hyperlink{class_prostokat_acc97afb4da6106f85d2b36c0b4ba7e26}{Prostokat} ()}\label{class_prostokat_acc97afb4da6106f85d2b36c0b4ba7e26}
+
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_prostokat}{Prostokat} zerami. \end{DoxyCompactList}\item 
+\hyperlink{class_prostokat_aa6317fe9a126316a5ef4f56f7a11cfe6}{Prostokat} (double x\+\_\+0, double y\+\_\+0, double x\+\_\+1, double y\+\_\+1, double x\+\_\+2, double y\+\_\+2, double x\+\_\+3, double y\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_prostokat}{Prostokat} wartosciami. \end{DoxyCompactList}\item 
+\hyperlink{class_prostokat_abcdb414ae6950559026743bb8b984a9d}{Prostokat} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+0, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+1, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+2, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Inicjalizacja zmiennej typu \hyperlink{class_prostokat}{Prostokat} wartosciami. \end{DoxyCompactList}\item 
+void \hyperlink{class_prostokat_ac07b58a6344f7b9aa8c329e57bb9793d}{Ustaw} (double x\+\_\+0, double y\+\_\+0, double x\+\_\+1, double y\+\_\+1, double x\+\_\+2, double y\+\_\+2, double x\+\_\+3, double y\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Ustawia wartosci poszczegolnych wierzcholkow. \end{DoxyCompactList}\item 
+void \hyperlink{class_prostokat_ae9dde4a8d1e10335f506154800712235}{Ustaw} (\hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+0, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+1, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+2, \hyperlink{class_wektor2_d}{Wektor2\+D} Wekt\+\_\+3)
+\begin{DoxyCompactList}\small\item\em Ustawia wartosci poszczegolnych wierzcholkow. \end{DoxyCompactList}\item 
+void \hyperlink{class_prostokat_a6407ea37b4c49d7ec47d0d9681834133}{Obroc\+O\+Kat} (float a, int count)
+\begin{DoxyCompactList}\small\item\em Obraca prostakat o kat a. \end{DoxyCompactList}\item 
+void \hyperlink{class_prostokat_acbcd3b7605fb56471203a57a0c9c83ca}{Dlugosci\+Bokow} () const 
+\item 
+void \hyperlink{class_prostokat_a86df837571e55a267bc8f341a9294d93}{Przesun\+O\+Wektor} (\hyperlink{class_wektor2_d}{Wektor2\+D} const Wek)
+\begin{DoxyCompactList}\small\item\em Przesuwa \hyperlink{class_prostokat}{Prostokat} o wektor. \end{DoxyCompactList}\item 
+\hypertarget{class_prostokat_a5abad0b4ddc400030250292bbb453b21}{\hyperlink{class_wektor2_d}{Wektor2\+D} \hyperlink{class_prostokat_a5abad0b4ddc400030250292bbb453b21}{operator\mbox{[}$\,$\mbox{]}} (int Ind) const }\label{class_prostokat_a5abad0b4ddc400030250292bbb453b21}
+
+\begin{DoxyCompactList}\small\item\em Przeciarzenie operatra indeksowania do zwracania wartosci. \end{DoxyCompactList}\item 
+\hypertarget{class_prostokat_afae69457d9c6e2d87996e515da0e98cd}{\hyperlink{class_wektor2_d}{Wektor2\+D} \& \hyperlink{class_prostokat_afae69457d9c6e2d87996e515da0e98cd}{operator\mbox{[}$\,$\mbox{]}} (int Ind)}\label{class_prostokat_afae69457d9c6e2d87996e515da0e98cd}
+
+\begin{DoxyCompactList}\small\item\em Przeciarzenie operatra indeksowania do przypisania wartosci. \end{DoxyCompactList}\item 
+bool \hyperlink{class_prostokat_ae018bfa2c36538c3c8a622d2628e5f24}{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot} (const char $\ast$s\+Nazwa\+Pliku)
+\begin{DoxyCompactList}\small\item\em Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Modeluje informacje dotyczace polozenia prostokata. 
+
+Modeluje zestaw informacji dotyczacych polozenia prostokata. Udostępnia także metody umozliwiające aktualizowanie wartosci a także zwracanie ich. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_prostokat_aa6317fe9a126316a5ef4f56f7a11cfe6}{\index{Prostokat@{Prostokat}!Prostokat@{Prostokat}}
+\index{Prostokat@{Prostokat}!Prostokat@{Prostokat}}
+\subsubsection[{Prostokat}]{\setlength{\rightskip}{0pt plus 5cm}Prostokat\+::\+Prostokat (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+0, }
+\item[{double}]{y\+\_\+0, }
+\item[{double}]{x\+\_\+1, }
+\item[{double}]{y\+\_\+1, }
+\item[{double}]{x\+\_\+2, }
+\item[{double}]{y\+\_\+2, }
+\item[{double}]{x\+\_\+3, }
+\item[{double}]{y\+\_\+3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_prostokat_aa6317fe9a126316a5ef4f56f7a11cfe6}
+
+
+Inicjalizacja zmiennej typu \hyperlink{class_prostokat}{Prostokat} wartosciami. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x\+\_\+\{0,1,2,3\}} & ustawia parametry pierwszej wspolrzednej wierzcholkow prostokata. \\
+\hline
+\mbox{\tt in}  & {\em y\+\_\+\{0,1,2,3\}} & ustawia parametry drugiej wspolrzednej wierzcholkow prostokata. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_prostokat_abcdb414ae6950559026743bb8b984a9d}{\index{Prostokat@{Prostokat}!Prostokat@{Prostokat}}
+\index{Prostokat@{Prostokat}!Prostokat@{Prostokat}}
+\subsubsection[{Prostokat}]{\setlength{\rightskip}{0pt plus 5cm}Prostokat\+::\+Prostokat (
+\begin{DoxyParamCaption}
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+0, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+1, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+2, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_prostokat_abcdb414ae6950559026743bb8b984a9d}
+
+
+Inicjalizacja zmiennej typu \hyperlink{class_prostokat}{Prostokat} wartosciami. 
+
+Każdy wierzchołek jest oreślony jako wektor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wekt\+\_\+\{0,1,2,3\}} & ustawia parametry wierzchołka prostokąta powinny być typu \hyperlink{class_wektor2_d}{Wektor2\+D} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_prostokat_acbcd3b7605fb56471203a57a0c9c83ca}{\index{Prostokat@{Prostokat}!Dlugosci\+Bokow@{Dlugosci\+Bokow}}
+\index{Dlugosci\+Bokow@{Dlugosci\+Bokow}!Prostokat@{Prostokat}}
+\subsubsection[{Dlugosci\+Bokow}]{\setlength{\rightskip}{0pt plus 5cm}void Prostokat\+::\+Dlugosci\+Bokow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_prostokat_acbcd3b7605fb56471203a57a0c9c83ca}
+/brief Znajdz długości przeciwległych bokow \hypertarget{class_prostokat_a6407ea37b4c49d7ec47d0d9681834133}{\index{Prostokat@{Prostokat}!Obroc\+O\+Kat@{Obroc\+O\+Kat}}
+\index{Obroc\+O\+Kat@{Obroc\+O\+Kat}!Prostokat@{Prostokat}}
+\subsubsection[{Obroc\+O\+Kat}]{\setlength{\rightskip}{0pt plus 5cm}void Prostokat\+::\+Obroc\+O\+Kat (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)}}\label{class_prostokat_a6407ea37b4c49d7ec47d0d9681834133}
+
+
+Obraca prostakat o kat a. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & kąt o jaki obrócić prostokąt\\
+\hline
+\mbox{\tt in}  & {\em count} & ile razy obrócić \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_prostokat_a86df837571e55a267bc8f341a9294d93}{\index{Prostokat@{Prostokat}!Przesun\+O\+Wektor@{Przesun\+O\+Wektor}}
+\index{Przesun\+O\+Wektor@{Przesun\+O\+Wektor}!Prostokat@{Prostokat}}
+\subsubsection[{Przesun\+O\+Wektor}]{\setlength{\rightskip}{0pt plus 5cm}void Prostokat\+::\+Przesun\+O\+Wektor (
+\begin{DoxyParamCaption}
+\item[{{\bf Wektor2\+D} const}]{Wek}
+\end{DoxyParamCaption}
+)}}\label{class_prostokat_a86df837571e55a267bc8f341a9294d93}
+
+
+Przesuwa \hyperlink{class_prostokat}{Prostokat} o wektor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wek} & -\/ Wektor o jaki maja byc przesuniete wierzcholki prostokata \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_prostokat_ac07b58a6344f7b9aa8c329e57bb9793d}{\index{Prostokat@{Prostokat}!Ustaw@{Ustaw}}
+\index{Ustaw@{Ustaw}!Prostokat@{Prostokat}}
+\subsubsection[{Ustaw}]{\setlength{\rightskip}{0pt plus 5cm}void Prostokat\+::\+Ustaw (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+0, }
+\item[{double}]{y\+\_\+0, }
+\item[{double}]{x\+\_\+1, }
+\item[{double}]{y\+\_\+1, }
+\item[{double}]{x\+\_\+2, }
+\item[{double}]{y\+\_\+2, }
+\item[{double}]{x\+\_\+3, }
+\item[{double}]{y\+\_\+3}
+\end{DoxyParamCaption}
+)}}\label{class_prostokat_ac07b58a6344f7b9aa8c329e57bb9793d}
+
+
+Ustawia wartosci poszczegolnych wierzcholkow. 
+
+Każdy wierzcholek powinien być określony przez współrzędne
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x\+\_\+\{0,1,2,3\}} & ustawia parametry pierwszej wspolrzednej wierzcholkow prostokata. \\
+\hline
+\mbox{\tt in}  & {\em y\+\_\+\{0,1,2,3\}} & ustawia parametry drugiej wspolrzednej wierzcholkow prostokata. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_prostokat_ae9dde4a8d1e10335f506154800712235}{\index{Prostokat@{Prostokat}!Ustaw@{Ustaw}}
+\index{Ustaw@{Ustaw}!Prostokat@{Prostokat}}
+\subsubsection[{Ustaw}]{\setlength{\rightskip}{0pt plus 5cm}void Prostokat\+::\+Ustaw (
+\begin{DoxyParamCaption}
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+0, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+1, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+2, }
+\item[{{\bf Wektor2\+D}}]{Wekt\+\_\+3}
+\end{DoxyParamCaption}
+)}}\label{class_prostokat_ae9dde4a8d1e10335f506154800712235}
+
+
+Ustawia wartosci poszczegolnych wierzcholkow. 
+
+Każdy wierzchołek jest oreślony jako wektor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Wekt\+\_\+\{0,1,2,3\}} & ustawia parametry wierzchołka prostokąta powinny być typu \hyperlink{class_wektor2_d}{Wektor2\+D} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_prostokat_ae018bfa2c36538c3c8a622d2628e5f24}{\index{Prostokat@{Prostokat}!Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}}
+\index{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot@{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}!Prostokat@{Prostokat}}
+\subsubsection[{Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot}]{\setlength{\rightskip}{0pt plus 5cm}bool Prostokat\+::\+Zapis\+Wspolrzednych\+Do\+Pliku\+Format\+Gnuplot (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s\+Nazwa\+Pliku}
+\end{DoxyParamCaption}
+)}}\label{class_prostokat_ae018bfa2c36538c3c8a622d2628e5f24}
+
+
+Zapisuje wspolrzedne do pliku w formacie zgodnym z Gnuplotem. 
+
+Funkcja jest niewielką modyfikacją funkcji \char`\"{}\+Przyklad\+Zapisu\+Wspolrzednych\+Do\+Pliku\char`\"{} z pliku main dostarczonego w folderze zalazek 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kstefanc/\+P\+O/\+Lab04/\+Lab/prj/inc/\hyperlink{_prostokat_8hh}{Prostokat.\+hh}\item 
+/home/kstefanc/\+P\+O/\+Lab04/\+Lab/prj/src/Prostokat.\+cpp\end{DoxyCompactItemize}

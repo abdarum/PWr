@@ -1,0 +1,13 @@
+2 tygodnie na to zadanie
+
+Algorytm
+- pytamy jaki inny obrazek chcesz otworzyć?
+- uzyskać rozmiar obrazka(stat)
+- dostosować rozmiar obrazu do nowego(ftruncate)
+- mapujemy do pamięci(mmap)
+- otworzyć plik
+- wczytać do pamięci 
+- zamknąć plik
+- synchronizować(msync)
+
+

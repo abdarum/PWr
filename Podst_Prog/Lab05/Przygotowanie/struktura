@@ -1,0 +1,5 @@
+typedef struct{
+int**;
+int wymx, wymy;
+int szarosci;
+}obrazek;

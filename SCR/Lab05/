@@ -1,0 +1,7 @@
+Zadanie 1
+Skrypt nie reaguje na próbę zakończenia pracy programu sygnałem SIGINT, podobnie na sygnał SIGQUIT
+
+Próba zakończenia procesu sygnałem SIGFPE zakończyła się z komunikatem Floating point exception
+
+Próba zakończenia procesu sygnałem SIGILL również zakończyła się sukcesem wyświetlając komunikat Illegal instruction
+

@@ -1,0 +1,25 @@
+Zadania wykonywałem w bashu, na serverze panamint, jednak niektóre zachowania programów nie były zgodne z oczekiwaniami.
+
+Zadanie 1
+Skrypt nie reaguje na próbę zakończenia pracy programu sygnałem SIGINT, podobnie na sygnał SIGQUIT
+
+Próba zakończenia procesu sygnałem SIGFPE zakończyła się z komunikatem Floating point exception
+
+Próba zakończenia procesu sygnałem SIGILL również zakończyła się sukcesem wyświetlając komunikat Illegal instruction
+
+Po zastosowaniu polecenia trap skrypt przechwytuje wszystkie wyżej wymienione sygnały, ale nie przechwyciła sygnału SIGKILL, po czym proces został zabity.
+
+
+Zadanie 2
+
+Proces został zatrzymany po wysłaniu do niego sygnału SIGSTOP i wznowiony po odebraniu sygnału SIGCONT, ale kombinacja klawiszy Ctrl+z nie działała w moim przypadku. Wznawianie procesu poleceniem fg i bg przebiegło pomyślnie, różnica między nimi jest taka, że bg wznawia proces w tle. 
+
+Po czasie testów zauważyłem, że po zatrzymaniu procesu SIGSTOP i wznowieniu fg, zatrzymanie kombinacją Ctrl+z było możliwe, w przypadku wznowienia w tle, ta kombinacja już nie podziałała.
+
+Zadanie 3
+
+Po ustawieniu limitu, niemałego, ponieważ na moim lapopie było uruchomione około 550 procesów ustawiłem limit poleceniem ulimit -u tak, że na ekranie widoczne były głównie procesy z pierwszej setki procesów, gdzie uruchomiłem ich 2000. Polecenie ulimit ogranicza dostęp do procesów tak, że aktywnych an terminalu było około 50 procesów. Liczba ta wynika z dostępnej liczby procesów.
+
+Zadanie 4
+
+Po uruchomieniu procesów działały normalnie(proces 1 został uruchomiony pierwszy, a proces 2 drugi). Po zmienieniu liczby nice w trakcie działania, program 2 dostał niższą liczbę nice(wyższy priorytet) zamieniły się one miejscami i proces 2 wykonywał się pierwszy, a proces 1 zaraz po nim. 

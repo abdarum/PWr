@@ -1,0 +1,16 @@
+
+mknod potok p
+
+plik1-->program piszący --> potok --> program czytający
+        ^
+plik2 --|
+
+
+
+
+	x0 -->
+         1 --> program czyt
+         2 --> 
+pipe    xfd       
+
+execlp("tail","tail","t1cf",NULL);

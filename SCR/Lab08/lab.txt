@@ -1,0 +1,64 @@
+potoki anonimowe tworzenie funkcją file
+
+prezentacja 3 dr paluszyńskiego(pierwsze 6 slajdów)
+
+
+                                            
+strumień to kanał komunikacyjny, program <---- 0 stdin
+					 ----> 1 stdout
+ 					 ----> 2 stderr
+					 ---->
+
+
+write(deskryptor(strumienia do którego wysyłamy), tablica danych, rozmiar);
+
+write(1, "Hello world!\n", 14); wysyłanie hello world na stdout
+
+------------------------------
+int d;
+d = open(filename, O_READONLY); // otwiera plik i zwraca deskryptor(pewnie d dostanie d=3)
+
+	przykład:
+	n = read(deskryptor, tablice_nadane, rozmiar);
+
+
+#define SIZE 50// lub const int
+int bufor[SIZE];
+int n;
+n = read(d, bufor, SIZE);
+------------------------------
+
+
+-----------------------------
+tworzenie pipe
+-----------------------------
+int fd[2];
+pipe(fd);
+	//jak program z-forkujemy to oba będą mogły pisać oraz czytać z tego pipa
+close(fd[1]); // zamykamy ten koniec, którego nie używamy
+	//w jednym zamykamy 1 a w drugim 0, czyli jeden pisze, a drugi czyta
+-----------------------------
+
+
+-----------------------------
+duplikowanie pipe
+-----------------------------
+ program <---- 0 stdin
+	 ----> 1 stdout
+ 	 ----> 2 stderr
+	 <---- fd[0]
+	 ---->
+
+close(0); //zwolniliśmy 0
+dup(fd[0]); // fd[0] duplikuje się na pierwszy wolny port, czyli 0(stdin)
+close(fd[0]);
+-----------------------------
+
+
+-----------------------------
+przekształcenie się w proces
+-----------------------------
+execlp("display","display",NULL);
+// wysyłamy na jego wejście standardowe nazwę pliku
+-----------------------------
+

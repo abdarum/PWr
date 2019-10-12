@@ -1,0 +1,333 @@
+execve("/bin/bash", ["bash", "-lic", "exit"], [/* 19 vars */]) = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libtinfo.so.5", O_RDONLY|O_CLOEXEC) = 3
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+open("/dev/tty", O_RDWR|O_NONBLOCK)     = 3
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+stat("/home/kstefanc/Aktualne_kursy/SCR/Lab07", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/home", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+stat("/home/kstefanc", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/home/kstefanc/Aktualne_kursy", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/home/kstefanc/Aktualne_kursy/SCR", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/home/kstefanc/Aktualne_kursy/SCR/Lab07", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/home/kstefanc", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+open("/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/bash", 0x7ffe79d5a480) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/bash", 0x7ffe79d5a480)   = -1 ENOENT (No such file or directory)
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+access("/bin/bash", X_OK)               = 0
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+access("/bin/bash", R_OK)               = 0
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+access("/bin/bash", X_OK)               = 0
+stat("/bin/bash", {st_mode=S_IFREG|0755, st_size=1099016, ...}) = 0
+access("/bin/bash", R_OK)               = 0
+open("/dev/tty", O_RDWR|O_NONBLOCK)     = 3
+open("/etc/profile", O_RDONLY)          = 3
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=6945, si_uid=14957, si_status=0, si_utime=0, si_stime=0} ---
+stat("/etc/bash.bashrc", {st_mode=S_IFREG|0644, st_size=1863, ...}) = 0
+open("/etc/bash.bashrc", O_RDONLY)      = 3
+faccessat(AT_FDCWD, "/etc/debian_chroot", R_OK) = -1 ENOENT (No such file or directory)
+faccessat(AT_FDCWD, "/usr/lib/command-not-found", X_OK) = -1 ENOENT (No such file or directory)
+faccessat(AT_FDCWD, "/usr/share/command-not-found/command-not-found", X_OK) = -1 ENOENT (No such file or directory)
+stat("/etc/profile.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+open("/etc/profile.d/", O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = 3
+faccessat(AT_FDCWD, "/etc/profile.d/bash_completion.sh", R_OK) = 0
+open("/etc/profile.d/bash_completion.sh", O_RDONLY) = 3
+faccessat(AT_FDCWD, "/home/kstefanc/.config/bash_completion", R_OK) = -1 ENOENT (No such file or directory)
+faccessat(AT_FDCWD, "/usr/share/bash-completion/bash_completion", R_OK) = 0
+open("/usr/share/bash-completion/bash_completion", O_RDONLY) = 3
+stat("/etc/rc.d/init.d", 0x7ffe79d586f0) = -1 ENOENT (No such file or directory)
+stat("/etc/init.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/etc/slackware-version", 0x7ffe79d58910) = -1 ENOENT (No such file or directory)
+open("/etc/init.d/", O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = 3
+faccessat(AT_FDCWD, "/etc/init.d/apache2", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/apache-htcacheclean", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/atd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/autofs", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/avahi-daemon", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/bind9", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/binfmt-support", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/cgroupfs-mount", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/console-setup.sh", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/cron", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/dbus", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/docker", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/ebtables", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/exim4", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/fail2ban", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/hddtemp", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/hp-asrd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/hpessad", X_OK) = -1 EACCES (Permission denied)
+faccessat(AT_FDCWD, "/etc/init.d/hp-health", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/hpsmhd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/hwclock.sh", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/keyboard-setup.sh", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/kmod", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/libvirtd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/libvirt-guests", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/lm-sensors", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/lvm2", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/lvm2-lvmetad", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/lvm2-lvmpolld", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/networking", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/nfs-common", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/nscd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/ntopng", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/ntp", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/procps", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/quota", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/quotarpc", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/redis-server", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/rpcbind", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/rsync", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/rsyslog", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/rwhod", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/screen-cleanup", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/sendmail", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/spamassassin", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/spamass-milter", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/squid", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/ssh", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/sudo", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/udev", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/unattended-upgrades", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/virtlogd", X_OK) = 0
+faccessat(AT_FDCWD, "/etc/init.d/x11-common", X_OK) = 0
+stat("/etc/bash_completion.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d", R_OK) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d", X_OK) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=6948, si_uid=14957, si_status=0, si_utime=0, si_stime=0} ---
+stat("/etc/bash_completion.d/dkms", {st_mode=S_IFREG|0644, st_size=2384, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d/dkms", R_OK) = 0
+open("/etc/bash_completion.d/dkms", O_RDONLY) = 3
+stat("/etc/bash_completion.d/fail2ban", {st_mode=S_IFREG|0644, st_size=7067, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d/fail2ban", R_OK) = 0
+open("/etc/bash_completion.d/fail2ban", O_RDONLY) = 3
+stat("/etc/bash_completion.d/git-prompt", {st_mode=S_IFREG|0644, st_size=439, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d/git-prompt", R_OK) = 0
+open("/etc/bash_completion.d/git-prompt", O_RDONLY) = 3
+stat("/usr/lib/git-core/git-sh-prompt", {st_mode=S_IFREG|0644, st_size=16379, ...}) = 0
+open("/usr/lib/git-core/git-sh-prompt", O_RDONLY) = 3
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat("/etc/bash_completion.d/grub", {st_mode=S_IFREG|0644, st_size=11144, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d/grub", R_OK) = 0
+open("/etc/bash_completion.d/grub", O_RDONLY) = 3
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-set-default", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-set-default", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-set-default", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-set-default", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-set-default", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+access("/usr/sbin/grub-set-default", X_OK) = 0
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+access("/usr/sbin/grub-set-default", R_OK) = 0
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+access("/usr/sbin/grub-set-default", X_OK) = 0
+stat("/usr/sbin/grub-set-default", {st_mode=S_IFREG|0755, st_size=3560, ...}) = 0
+access("/usr/sbin/grub-set-default", R_OK) = 0
+open("/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+open("/usr/share/locale/en_US/LC_MESSAGES/bash.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/bash.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-reboot", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-reboot", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-reboot", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-reboot", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-reboot", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+access("/usr/sbin/grub-reboot", X_OK)   = 0
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+access("/usr/sbin/grub-reboot", R_OK)   = 0
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+access("/usr/sbin/grub-reboot", X_OK)   = 0
+stat("/usr/sbin/grub-reboot", {st_mode=S_IFREG|0755, st_size=4110, ...}) = 0
+access("/usr/sbin/grub-reboot", R_OK)   = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-editenv", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+access("/usr/bin/grub-editenv", X_OK)   = 0
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+access("/usr/bin/grub-editenv", R_OK)   = 0
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+access("/usr/bin/grub-editenv", X_OK)   = 0
+stat("/usr/bin/grub-editenv", {st_mode=S_IFREG|0755, st_size=242656, ...}) = 0
+access("/usr/bin/grub-editenv", R_OK)   = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-mkconfig", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-mkconfig", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-mkconfig", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-mkconfig", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-mkconfig", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+access("/usr/sbin/grub-mkconfig", X_OK) = 0
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+access("/usr/sbin/grub-mkconfig", R_OK) = 0
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+access("/usr/sbin/grub-mkconfig", X_OK) = 0
+stat("/usr/sbin/grub-mkconfig", {st_mode=S_IFREG|0755, st_size=8010, ...}) = 0
+access("/usr/sbin/grub-mkconfig", R_OK) = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-bios-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-bios-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-bios-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-bios-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-bios-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-bios-setup", X_OK) = 0
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-bios-setup", R_OK) = 0
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-bios-setup", X_OK) = 0
+stat("/usr/sbin/grub-bios-setup", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-bios-setup", R_OK) = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/sbin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/sbin/grub-sparc64-setup", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-install", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-install", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-install", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-install", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-install", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+access("/usr/sbin/grub-install", X_OK)  = 0
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+access("/usr/sbin/grub-install", R_OK)  = 0
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+access("/usr/sbin/grub-install", X_OK)  = 0
+stat("/usr/sbin/grub-install", {st_mode=S_IFREG|0755, st_size=1020496, ...}) = 0
+access("/usr/sbin/grub-install", R_OK)  = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-mkfont", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+access("/usr/bin/grub-mkfont", X_OK)    = 0
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+access("/usr/bin/grub-mkfont", R_OK)    = 0
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+access("/usr/bin/grub-mkfont", X_OK)    = 0
+stat("/usr/bin/grub-mkfont", {st_mode=S_IFREG|0755, st_size=267744, ...}) = 0
+access("/usr/bin/grub-mkfont", R_OK)    = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-mkrescue", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+access("/usr/bin/grub-mkrescue", X_OK)  = 0
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+access("/usr/bin/grub-mkrescue", R_OK)  = 0
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+access("/usr/bin/grub-mkrescue", X_OK)  = 0
+stat("/usr/bin/grub-mkrescue", {st_mode=S_IFREG|0755, st_size=839056, ...}) = 0
+access("/usr/bin/grub-mkrescue", R_OK)  = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-mkimage", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+access("/usr/bin/grub-mkimage", X_OK)   = 0
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+access("/usr/bin/grub-mkimage", R_OK)   = 0
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+access("/usr/bin/grub-mkimage", X_OK)   = 0
+stat("/usr/bin/grub-mkimage", {st_mode=S_IFREG|0755, st_size=333696, ...}) = 0
+access("/usr/bin/grub-mkimage", R_OK)   = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-mkpasswd-pbkdf2", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+access("/usr/bin/grub-mkpasswd-pbkdf2", X_OK) = 0
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+access("/usr/bin/grub-mkpasswd-pbkdf2", R_OK) = 0
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+access("/usr/bin/grub-mkpasswd-pbkdf2", X_OK) = 0
+stat("/usr/bin/grub-mkpasswd-pbkdf2", {st_mode=S_IFREG|0755, st_size=246944, ...}) = 0
+access("/usr/bin/grub-mkpasswd-pbkdf2", R_OK) = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-probe", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-probe", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/bin/grub-probe", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/local/games/grub-probe", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/games/grub-probe", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-probe", X_OK)    = 0
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-probe", R_OK)    = 0
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-probe", X_OK)    = 0
+stat("/usr/sbin/grub-probe", {st_mode=S_IFREG|0755, st_size=809152, ...}) = 0
+access("/usr/sbin/grub-probe", R_OK)    = 0
+open("/dev/null", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/usr/local/bin/grub-script-check", 0x7ffe79d57900) = -1 ENOENT (No such file or directory)
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+access("/usr/bin/grub-script-check", X_OK) = 0
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+access("/usr/bin/grub-script-check", R_OK) = 0
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+access("/usr/bin/grub-script-check", X_OK) = 0
+stat("/usr/bin/grub-script-check", {st_mode=S_IFREG|0755, st_size=266880, ...}) = 0
+access("/usr/bin/grub-script-check", R_OK) = 0
+stat("/etc/bash_completion.d/wstool-completion.bash", {st_mode=S_IFREG|0644, st_size=7658, ...}) = 0
+faccessat(AT_FDCWD, "/etc/bash_completion.d/wstool-completion.bash", R_OK) = 0
+open("/etc/bash_completion.d/wstool-completion.bash", O_RDONLY) = 3
+faccessat(AT_FDCWD, "/home/kstefanc/.bash_completion", R_OK) = -1 ENOENT (No such file or directory)
+faccessat(AT_FDCWD, "/etc/profile.d/jdk.sh", R_OK) = 0
+open("/etc/profile.d/jdk.sh", O_RDONLY) = 3
+faccessat(AT_FDCWD, "/etc/profile.d/vte-2.91.sh", R_OK) = 0
+open("/etc/profile.d/vte-2.91.sh", O_RDONLY) = 3
+open("/home/kstefanc/.bash_profile", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/home/kstefanc/.bash_login", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/home/kstefanc/.profile", O_RDONLY) = -1 ENOENT (No such file or directory)
+logout
+open("/home/kstefanc/.bash_logout", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/etc/bash.bash_logout", O_RDONLY) = -1 ENOENT (No such file or directory)
++++ exited with 0 +++

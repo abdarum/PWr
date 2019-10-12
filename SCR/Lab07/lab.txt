@@ -1,0 +1,14 @@
+truss UNIX
+strace LINUX
+
+sudo strace -p PID
+sudo strace -c -p PID
+
+strace ./program
+
+
+         read, write
+truss -t open, close ./program
+strace -e
+
+open("/etc/...")=3
