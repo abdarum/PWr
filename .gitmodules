@@ -4,9 +4,6 @@
 [submodule "bechalor/Szklarnia_projekt_zespolowy"]
 	path = bechalor/Szklarnia_projekt_zespolowy
 	url = https://github.com/abdarum/Szklarnia_projekt_zespolowy.git
-[submodule "master/Szklarnia_projekt_zespolowy"]
-	path = master/Szklarnia_projekt_zespolowy
-	url = https://github.com/abdarum/Szklarnia_projekt_zespolowy.git
 [submodule "master/self-discipline-rpg-app"]
 	path = master/self-discipline-rpg-app
 	url = https://github.com/greencashew/self-discipline-rpg-app.git
