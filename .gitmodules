@@ -10,3 +10,12 @@
 [submodule "master/ISM"]
 	path = master/ISM
 	url = https://github.com/abdarum/ISM.git
+[submodule "master/Erasmus_course_Java"]
+	path = master/Erasmus_course_Java
+	url = https://github.com/abdarum/Erasmus_course_Java.git
+[submodule "master/Erasmus_courses"]
+	path = master/Erasmus_courses
+	url = https://github.com/abdarum/Erasmus_courses.git
+[submodule "master/RSM1"]
+	path = master/RSM1
+	url = https://github.com/abdarum/RSM1.git
