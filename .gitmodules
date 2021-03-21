@@ -19,3 +19,9 @@
 [submodule "master/RSM1"]
 	path = master/RSM1
 	url = https://github.com/abdarum/RSM1.git
+[submodule "bechalor/Praca_inzynierska/5c6e994fe6f8820a932cc386"]
+	path = bechalor/Praca_inzynierska/5c6e994fe6f8820a932cc386
+	url = https://git.overleaf.com/5c6e994fe6f8820a932cc386
+[submodule "bechalor/Praca_inzynierska/Praca_inzynierska_git"]
+	path = bechalor/Praca_inzynierska/Praca_inzynierska_git
+	url = https://github.com/abdarum/Praca_inzynierska_git
