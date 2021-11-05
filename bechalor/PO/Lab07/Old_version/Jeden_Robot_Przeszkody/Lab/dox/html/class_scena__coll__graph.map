@@ -1,5 +1,0 @@
-<map id="Scena" name="Scena">
-<area shape="rect" id="node2" href="$class_sciezka.html" title="Modeluje informacje dotyczace Ścieżki. " alt="" coords="5,81,75,108"/>
-<area shape="rect" id="node3" href="$class_objekt___graficzny.html" title="Modeluje informacje dotyczace Objekt_Graficzny. " alt="" coords="28,5,151,32"/>
-<area shape="rect" id="node4" href="$class_robot.html" title="Modeluje informacje dotyczace Robota. " alt="" coords="99,81,157,108"/>
-</map>
