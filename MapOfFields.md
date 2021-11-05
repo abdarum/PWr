@@ -3,8 +3,7 @@
 ## Programming Languges
 | Field | Projects|
 | ------------- | ------------- |
-| Android | [PAM](https://github.com/abdarum/PWr/tree/master/bechalor/PAM) [Praca_inzynierska](https://github.com/abdarum/PWr/tree/master/bechalor/Praca_inzynierska) [Szklarnia_projekt_zespolowy](https://github.com/abdarum/Szklarnia_projekt_zespolowy) [Erasmus_courses](https://github.com/abdarum/Erasmus_courses/tree/master/Programming_for_Mobile_Internet_Devices)
-| 
+| Android | [PAM](https://github.com/abdarum/PWr/tree/master/bechalor/PAM) [Praca_inzynierska](https://github.com/abdarum/PWr/tree/master/bechalor/Praca_inzynierska) [Szklarnia_projekt_zespolowy](https://github.com/abdarum/Szklarnia_projekt_zespolowy) [Erasmus_courses](https://github.com/abdarum/Erasmus_courses/tree/master/Programming_for_Mobile_Internet_Devices) | 
 | Angular | [ISM](https://github.com/abdarum/ISM/tree/master) |
 | C | [Podst_Prog](https://github.com/abdarum/PWr/tree/master/bechalor/Podst_Prog) [SiCR](https://github.com/abdarum/PWr/tree/master/bechalor/SiCR) [SCR](https://github.com/abdarum/PWr/tree/master/bechalor/SCR) |
 | C++ | [PO](https://github.com/abdarum/PWr/tree/master/bechalor/PO) [Praca_inzynierska](https://github.com/abdarum/PWr/tree/master/bechalor/Praca_inzynierska) |
